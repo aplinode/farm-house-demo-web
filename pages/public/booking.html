@@ -134,8 +134,8 @@
 <body class="bg-surface text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary">
 <!-- TopNavBar -->
 <nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
-<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="font-headline-md text-headline-md text-tertiary tracking-tight" href="../../index.html">Evergreen Estates</a>
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 md:py-4 max-w-container-max mx-auto">
+<a class="font-headline-sm md:font-headline-md text-headline-sm md:text-headline-md text-tertiary tracking-tight" href="../../index.html">Evergreen Estates</a>
 <div class="hidden md:flex items-center gap-gutter">
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="../../index.html">Home</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="facilities.html">Facilities</a>
@@ -144,9 +144,32 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="reviews.html">Reviews</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Contact</a>
 </div>
-<a href="booking.html"><button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<a href="booking.html"><button class="bg-tertiary text-on-tertiary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<button class="md:hidden text-tertiary p-2" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 </div>
 </nav>
+<!-- Mobile Sidebar Overlay -->
+<div class="fixed inset-0 bg-black/60 z-40 hidden md:hidden" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<!-- Mobile Sidebar -->
+<div class="fixed top-0 right-0 h-full w-72 bg-surface-container-highest z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden" id="sidebar">
+<div class="flex justify-between items-center p-6 border-b border-tertiary/20">
+<span class="font-headline-md text-headline-md text-tertiary">Evergreen Estates</span>
+<button class="text-tertiary" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="flex flex-col p-6 gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="../../index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="facilities.html">Facilities</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="gallery.html">Gallery</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="booking.html">Booking</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="reviews.html">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md bg-tertiary text-on-tertiary text-center py-3 px-4 rounded-lg mt-4" href="booking.html">Book Now</a>
+</div>
+</div>
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
 <!-- Hero Section -->
 <header class="mb-16 md:mb-24 text-center">
@@ -360,6 +383,12 @@
         </div>
 </footer>
 <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
         let guestCount = 2;
         const baseRates = {
             weekday: 45000,

@@ -121,8 +121,8 @@
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
 <!-- Top Navigation Bar -->
 <nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
-<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="font-headline-md text-headline-md text-tertiary tracking-tight" href="index.html">Evergreen Estates</a>
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 md:py-4 max-w-container-max mx-auto">
+<a class="font-headline-sm md:font-headline-md text-headline-sm md:text-headline-md text-tertiary tracking-tight" href="index.html">Evergreen Estates</a>
 <div class="hidden md:flex items-center gap-gutter">
 <a class="font-body-md text-body-md text-tertiary font-semibold border-b-2 border-tertiary pb-1" href="index.html">Home</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="pages/public/facilities.html">Facilities</a>
@@ -131,11 +131,34 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="pages/public/reviews.html">Reviews</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="pages/public/contact.html">Contact</a>
 </div>
-<a href="pages/public/booking.html"><button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<a href="pages/public/booking.html"><button class="bg-tertiary text-on-tertiary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<button class="md:hidden text-tertiary p-2" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 </div>
 </nav>
+<!-- Mobile Sidebar Overlay -->
+<div class="fixed inset-0 bg-black/60 z-40 hidden md:hidden" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<!-- Mobile Sidebar -->
+<div class="fixed top-0 right-0 h-full w-72 bg-surface-container-highest z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden" id="sidebar">
+<div class="flex justify-between items-center p-6 border-b border-tertiary/20">
+<span class="font-headline-md text-headline-md text-tertiary">Evergreen Estates</span>
+<button class="text-tertiary" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="flex flex-col p-6 gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="pages/public/facilities.html">Facilities</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="pages/public/gallery.html">Gallery</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="pages/public/booking.html">Booking</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="pages/public/reviews.html">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="pages/public/contact.html">Contact</a>
+<a class="font-body-md text-body-md bg-tertiary text-on-tertiary text-center py-3 px-4 rounded-lg mt-4" href="pages/public/booking.html">Book Now</a>
+</div>
+</div>
 <!-- Hero Section -->
-<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<header class="relative min-h-[80vh] md:h-screen w-full flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover" data-alt="A breathtaking high-angle drone photograph of a sprawling luxury estate in Pakistan. The scene features lush green lawns, rows of towering palm trees, and a modern architectural masterpiece with large glass windows and clean lines. The warm golden hour lighting casts long shadows and highlights the deep emerald greens and earthy tones of the landscape, creating an atmosphere of absolute privacy and serene luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhNH-5txXZ-QS9_rayu081iwIWG8qatgflvx1_YC4wRX23AEY6fC5mN-OpK4KObzFITAhVLXspkFn9AI_TE1ZqOcnwpUSO3UjlPb9Dt9N8RnJyI4WV80sYZA-B9PbarjqMnHibq2WcJ3LQ-EJN83gnhnGOftl7NISMQveM5XEMNQyMQ_Jl1PSxX6yeHxdPRiKxrVr34YI9SvWWt5cphj3_aTiK4e1sIxd58ZVaJm-WpPpFb0TXcB97bdVjKRU_tTu3jDh_cQpFKRE"/>
 <div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/20 to-surface"></div>
@@ -158,7 +181,7 @@
 </div>
 </header>
 <!-- Live Availability Section -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<section class="py-12 md:py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div>
 <span class="font-label-caps text-label-caps text-tertiary mb-4 block">Reservation Status</span>
@@ -218,7 +241,7 @@
 </div>
 </section>
 <!-- Featured Facilities Section -->
-<section class="py-24 bg-surface-container-lowest">
+<section class="py-16 md:py-24 bg-surface-container-lowest">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
 <span class="font-label-caps text-label-caps text-tertiary tracking-widest mb-4 block">World Class Amenities</span>
@@ -294,7 +317,7 @@
 </div>
 </section>
 <!-- Rates Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop">
 <div class="max-w-container-max mx-auto">
 <div class="text-center mb-16">
 <span class="font-label-caps text-label-caps text-tertiary tracking-widest mb-4 block">Tailored Packages</span>
@@ -355,7 +378,7 @@
 </div>
 </section>
 <!-- Testimonials Section -->
-<section class="py-24 bg-surface-container-low border-y border-tertiary/10">
+<section class="py-16 md:py-24 bg-surface-container-low border-y border-tertiary/10">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
 <div class="max-w-xl">
@@ -430,7 +453,7 @@
 </div>
 </section>
 <!-- Map Section -->
-<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<section class="py-16 md:py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div class="order-2 lg:order-1 h-[450px] rounded-2xl overflow-hidden border-2 border-tertiary/30">
 <img class="w-full h-full object-cover grayscale opacity-50 contrast-125" data-alt="A stylized, high-contrast luxury map preview of the estate's location in a prestigious area of Pakistan. The map features elegant gold and emerald green tones, with minimalist icons marking nearby landmarks and the main access routes. The lighting is subtle and editorial, creating a sophisticated feel that prioritizes privacy and exclusivity while providing clear geographic context." data-location="Lahore, Pakistan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQlfrcYirliWDREqOZ95DpTjOGjrrs_7nfzMCvOpUU1eMp571RNBzoI5WZrwen2bm9KeFrQJUKigM5u80rxFEy0wc-YYYOfVGy6_w8mZkrYfB9a2EvhzV_tAGRyCdpf9HT2JkfdoB8uJm5oA1l0DBUoGr0iwBwkvUZ2vlLmHCOWj9BGmLb983HV059Abzem44soaAL9cZxm3KZmqU9mcRRznDx3H6_F9MXfN2J6t4lpMqmvvfDD8tKvAyBhqLZRs1tjNyn86SIBqE"/>
@@ -502,7 +525,12 @@
         </div>
 </footer>
 <script>
-        // Micro-interaction for luxury buttons
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('mousedown', () => {
                 button.style.transform = 'scale(0.96)';

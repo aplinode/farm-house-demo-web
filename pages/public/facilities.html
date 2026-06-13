@@ -119,8 +119,8 @@
 <body class="bg-background text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary-container">
 <!-- TopNavBar -->
 <nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
-<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="font-headline-md text-headline-md text-tertiary tracking-tight" href="../../index.html">Evergreen Estates</a>
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 md:py-4 max-w-container-max mx-auto">
+<a class="font-headline-sm md:font-headline-md text-headline-sm md:text-headline-md text-tertiary tracking-tight" href="../../index.html">Evergreen Estates</a>
 <div class="hidden md:flex items-center gap-gutter">
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="../../index.html">Home</a>
 <a class="font-body-md text-body-md text-tertiary font-semibold border-b-2 border-tertiary pb-1" href="facilities.html">Facilities</a>
@@ -129,12 +129,35 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="reviews.html">Reviews</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Contact</a>
 </div>
-<a href="booking.html"><button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<a href="booking.html"><button class="bg-tertiary text-on-tertiary px-4 md:px-6 py-1.5 md:py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">Book Now</button></a>
+<button class="md:hidden text-tertiary p-2" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 </div>
 </nav>
+<!-- Mobile Sidebar Overlay -->
+<div class="fixed inset-0 bg-black/60 z-40 hidden md:hidden" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<!-- Mobile Sidebar -->
+<div class="fixed top-0 right-0 h-full w-72 bg-surface-container-highest z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden" id="sidebar">
+<div class="flex justify-between items-center p-6 border-b border-tertiary/20">
+<span class="font-headline-md text-headline-md text-tertiary">Evergreen Estates</span>
+<button class="text-tertiary" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="flex flex-col p-6 gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="../../index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="facilities.html">Facilities</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="gallery.html">Gallery</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="booking.html">Booking</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="reviews.html">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md bg-tertiary text-on-tertiary text-center py-3 px-4 rounded-lg mt-4" href="booking.html">Book Now</a>
+</div>
+</div>
 <main class="bg-pattern">
 <!-- Hero Section -->
-<header class="relative h-[614px] flex items-center justify-center overflow-hidden">
+<header class="relative min-h-[400px] md:h-[614px] flex items-center justify-center overflow-hidden">
 
 <div class="relative z-10 text-center px-4 max-w-4xl">
 <span class="font-label-caps text-label-caps text-tertiary mb-4 block tracking-widest uppercase">The Pinnacle of Comfort</span>
@@ -170,7 +193,7 @@
 </div>
 </div>
 <div class="order-1 md:order-2 luxury-card-border overflow-hidden rounded-xl group">
-<img alt="Infinity Pool" class="w-full h-[400px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A magnificent luxury infinity swimming pool at sunset, overlooking a vast forest landscape. The water is crystalline blue and perfectly still, reflecting the warm orange and gold hues of the sky. The pool deck is made of premium dark green slate, surrounded by manicured tropical gardens. The overall mood is incredibly peaceful, exclusive, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzhr7b4S6l5sU9QqV2ocTF00k1rTtoYTNZw0nYmqbmJxcK-IddArmExvF7jYtXXUM2qxaIyMjazMqiUrhRhqTCPwAouBExpqA8Joil8EgwpFtAZcePR2Uu74mSf67gwG-QymXpHuOhdH7FR2n7gptBEG7XxijzJ_z-ErQTX6Ca_mZ8CzX2rYDH1pzO7_tpHMgEAVOcTBQROGj9C_f14tMEhtt79wbCZ9gM9PEAfgNY_8HxCFboaqwKljhtR4HKH-trlakpesRWo"/>
+<img alt="Infinity Pool" class="w-full h-[300px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A magnificent luxury infinity swimming pool at sunset, overlooking a vast forest landscape. The water is crystalline blue and perfectly still, reflecting the warm orange and gold hues of the sky. The pool deck is made of premium dark green slate, surrounded by manicured tropical gardens. The overall mood is incredibly peaceful, exclusive, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzhr7b4S6l5sU9QqV2ocTF00k1rTtoYTNZw0nYmqbmJxcK-IddArmExvF7jYtXXUM2qxaIyMjazMqiUrhRhqTCPwAouBExpqA8Joil8EgwpFtAZcePR2Uu74mSf67gwG-QymXpHuOhdH7FR2n7gptBEG7XxijzJ_z-ErQTX6Ca_mZ8CzX2rYDH1pzO7_tpHMgEAVOcTBQROGj9C_f14tMEhtt79wbCZ9gM9PEAfgNY_8HxCFboaqwKljhtR4HKH-trlakpesRWo"/>
 </div>
 </div>
 </section>
@@ -178,7 +201,7 @@
 <section class="py-20 md:py-32 bg-surface-container-low px-margin-mobile md:px-margin-desktop">
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 <div class="luxury-card-border overflow-hidden rounded-xl group">
-<img alt="Cricket Pitch" class="w-full h-[400px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A professional-grade turf cricket pitch situated within a sprawling green estate. The grass is perfectly striped and vibrant emerald green, surrounded by tall pine trees and a clear blue sky. Professional floodlights are visible in the distance, suggesting capability for night matches. The aesthetic is sporty yet upscale, focusing on the pristine nature of the facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Mro5rPxtqokZDKmOvAUsDOITx0XoH7A1G7pBSRAJdJHjx71tkqrgqShh3S8oNfM7HvwNXjyFZpk_nQ8ESYl5NmQnaC2JMs-IxCT5A2MGK6HKja4n2ZySQPABrmKeUuKDyMyKrWcjXOe3Tduy6tyq9RCtgbFaWIpjeX23qHQPhiHUeYZ1scsSd6DVYR-STg2sCvE2q2OryCLF1fxWsihqb4o3U_QoQXUkpBeN903Xx70tpr95jDdPf8TQal_6LfnT6VgsEfRLEoc"/>
+<img alt="Cricket Pitch" class="w-full h-[300px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A professional-grade turf cricket pitch situated within a sprawling green estate. The grass is perfectly striped and vibrant emerald green, surrounded by tall pine trees and a clear blue sky. Professional floodlights are visible in the distance, suggesting capability for night matches. The aesthetic is sporty yet upscale, focusing on the pristine nature of the facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Mro5rPxtqokZDKmOvAUsDOITx0XoH7A1G7pBSRAJdJHjx71tkqrgqShh3S8oNfM7HvwNXjyFZpk_nQ8ESYl5NmQnaC2JMs-IxCT5A2MGK6HKja4n2ZySQPABrmKeUuKDyMyKrWcjXOe3Tduy6tyq9RCtgbFaWIpjeX23qHQPhiHUeYZ1scsSd6DVYR-STg2sCvE2q2OryCLF1fxWsihqb4o3U_QoQXUkpBeN903Xx70tpr95jDdPf8TQal_6LfnT6VgsEfRLEoc"/>
 </div>
 <div>
 <span class="font-label-caps text-label-caps text-tertiary mb-2 block uppercase">Sportsmanship</span>
@@ -226,7 +249,7 @@
 </div>
 </div>
 <div class="order-1 md:order-2 luxury-card-border overflow-hidden rounded-xl group">
-<img alt="Games Room" class="w-full h-[400px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sophisticated indoor recreation room featuring a high-end full-sized snooker table with a rich green felt top. The room is dimly lit with warm pendant lights focusing on the table. In the background, a professional foosball table stands ready. The interior is decorated with dark oak paneling and leather armchairs, exuding a private members' club luxury vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7ApCA9h1gewyp0J6dUnFUMy1ei77tu1QMXBStqSrjVKpmogydWUDuN_OR_-712GS-5wfpuEkTq_-kA2Mg0ppo4QgbRsXSdS0DVeBhw0Bx6aCwhBhzWch8EiHL1ZbSTLyS3HDlpq3Ep1vPTjwvxPRa3OMzVDRVGlDefR9n81kCzCLoYnFDiJ3P8hHXnxmtz2ziBLuFJrEKJSEiiw3V_6aWCF7_gJZTk7saDNjVAeJQ5UzS1j7HPnP3YVp2KnXg7JlOlW3dk-pmn4"/>
+<img alt="Games Room" class="w-full h-[300px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sophisticated indoor recreation room featuring a high-end full-sized snooker table with a rich green felt top. The room is dimly lit with warm pendant lights focusing on the table. In the background, a professional foosball table stands ready. The interior is decorated with dark oak paneling and leather armchairs, exuding a private members' club luxury vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7ApCA9h1gewyp0J6dUnFUMy1ei77tu1QMXBStqSrjVKpmogydWUDuN_OR_-712GS-5wfpuEkTq_-kA2Mg0ppo4QgbRsXSdS0DVeBhw0Bx6aCwhBhzWch8EiHL1ZbSTLyS3HDlpq3Ep1vPTjwvxPRa3OMzVDRVGlDefR9n81kCzCLoYnFDiJ3P8hHXnxmtz2ziBLuFJrEKJSEiiw3V_6aWCF7_gJZTk7saDNjVAeJQ5UzS1j7HPnP3YVp2KnXg7JlOlW3dk-pmn4"/>
 </div>
 </div>
 </section>
@@ -234,7 +257,7 @@
 <section class="py-20 md:py-32 bg-surface-container-low px-margin-mobile md:px-margin-desktop">
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 <div class="luxury-card-border overflow-hidden rounded-xl group">
-<img alt="Dining and BBQ Area" class="w-full h-[400px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An expansive outdoor BBQ area and elegant dining hall at dusk. Large stone grills are set up alongside a long wooden banquet table adorned with elegant tableware and candles. The area is covered by a modern pergola with climbing vines and hanging lanterns. The atmosphere is warm, inviting, and perfect for a family feast in a premium rural estate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOQqsWkzVqbtC5O0KQyJDUahXxZQggpRCS6KdNdgyRafRtUSfrIbYvRjSe777L7iwCYsOn8sV6aAIOjsCfYlpBl-8hs4p8PXKH5zDc_8FUMIeiK5zZLeQWj43yU2aD2fyQgk_2kQ31fHOPetXwqURUdPKO_hJEZk8ar08xjNbGU20yJqDC7bWlV8ixUD2amA3dTt-CB0bIqEU8dNqjxSscGBw5AyZf5htWGn5UR6DXr6TNu4NkneYmPEeBjX4SBhGeE_IqQFN0s_8"/>
+<img alt="Dining and BBQ Area" class="w-full h-[300px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An expansive outdoor BBQ area and elegant dining hall at dusk. Large stone grills are set up alongside a long wooden banquet table adorned with elegant tableware and candles. The area is covered by a modern pergola with climbing vines and hanging lanterns. The atmosphere is warm, inviting, and perfect for a family feast in a premium rural estate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOQqsWkzVqbtC5O0KQyJDUahXxZQggpRCS6KdNdgyRafRtUSfrIbYvRjSe777L7iwCYsOn8sV6aAIOjsCfYlpBl-8hs4p8PXKH5zDc_8FUMIeiK5zZLeQWj43yU2aD2fyQgk_2kQ31fHOPetXwqURUdPKO_hJEZk8ar08xjNbGU20yJqDC7bWlV8ixUD2amA3dTt-CB0bIqEU8dNqjxSscGBw5AyZf5htWGn5UR6DXr6TNu4NkneYmPEeBjX4SBhGeE_IqQFN0s_8"/>
 </div>
 <div>
 <span class="font-label-caps text-label-caps text-tertiary mb-2 block uppercase">Culinary Gatherings</span>
@@ -282,12 +305,12 @@
 </div>
 </div>
 <div class="order-1 md:order-2 luxury-card-border overflow-hidden rounded-xl group">
-<img alt="Accommodations" class="w-full h-[400px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A serene and luxurious master bedroom with high ceilings and large windows showing a lush green estate garden. The room features a minimalist design with rich emerald green accents and gold-rimmed furniture. The lighting is soft and natural. Beside it, a glimpse of a minimalist, clean, and quiet prayer room with traditional silk prayer rugs, focusing on spiritual tranquility and high-end materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOcAb5KxAtpGgbkhkE1zVhOeNdxI8qwDWv5yodER2Gph59GuL8y0H7F32dvMmLq3kFrHqeKmE2Ogtl1vz_G8-Op_Ost8xlbZcd3elLx-ElazAVX9veARoxD8j5B7iOMNI7Px9NT5ay0tRv57M3IX2cysRK8n3FCM8yoI-qsFaSPYWqT86XhoviQxvdUNyhCFBFM5YMKhcwwHPmXHJa9WJK66dFkLgkwBzUNgngPyb_D3chUwxPJRECeLP5eAtF4GdDsgKYKnvxVaU"/>
+<img alt="Accommodations" class="w-full h-[300px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A serene and luxurious master bedroom with high ceilings and large windows showing a lush green estate garden. The room features a minimalist design with rich emerald green accents and gold-rimmed furniture. The lighting is soft and natural. Beside it, a glimpse of a minimalist, clean, and quiet prayer room with traditional silk prayer rugs, focusing on spiritual tranquility and high-end materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOcAb5KxAtpGgbkhkE1zVhOeNdxI8qwDWv5yodER2Gph59GuL8y0H7F32dvMmLq3kFrHqeKmE2Ogtl1vz_G8-Op_Ost8xlbZcd3elLx-ElazAVX9veARoxD8j5B7iOMNI7Px9NT5ay0tRv57M3IX2cysRK8n3FCM8yoI-qsFaSPYWqT86XhoviQxvdUNyhCFBFM5YMKhcwwHPmXHJa9WJK66dFkLgkwBzUNgngPyb_D3chUwxPJRECeLP5eAtF4GdDsgKYKnvxVaU"/>
 </div>
 </div>
 </section>
 <!-- CTA Section -->
-<section class="py-24 bg-surface-container-highest">
+<section class="py-16 md:py-24 bg-surface-container-highest">
 <div class="max-w-4xl mx-auto text-center px-margin-mobile">
 <h3 class="font-headline-md text-headline-md text-on-surface mb-8">Ready to Experience True Luxury?</h3>
 <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -327,7 +350,12 @@
 </div>
 </footer>
 <script>
-        // Subtle interaction for the facilities cards
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
         document.querySelectorAll('.luxury-card-border').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 card.style.boxShadow = '0 10px 30px rgba(1, 50, 32, 0.5)';
