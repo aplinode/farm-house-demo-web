@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guest Reviews &amp; Gallery | Evergreen Estates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2b2b0e",
+                    "tertiary": "#e9c349",
+                    "on-secondary": "#003919",
+                    "inverse-on-surface": "#323214",
+                    "surface": "#141400",
+                    "primary-container": "#013220",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-dim": "#141400",
+                    "inverse-primary": "#3b6751",
+                    "surface-container": "#212105",
+                    "secondary-container": "#25a55a",
+                    "on-tertiary": "#3c2f00",
+                    "inverse-surface": "#e6e5b9",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#83fba5",
+                    "on-primary": "#083825",
+                    "outline-variant": "#414943",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "tertiary-container": "#cba72f",
+                    "on-secondary-fixed": "#00210c",
+                    "on-surface-variant": "#c1c8c2",
+                    "on-background": "#e6e5b9",
+                    "on-secondary-fixed-variant": "#005227",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe088",
+                    "on-primary-fixed": "#002113",
+                    "surface-container-low": "#1d1d03",
+                    "primary-fixed": "#bdedd2",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#a2d1b7",
+                    "surface-container-highest": "#363618",
+                    "surface-tint": "#a2d1b7",
+                    "surface-bright": "#3b3b1c",
+                    "primary-fixed-dim": "#a2d1b7",
+                    "secondary": "#66dd8b",
+                    "outline": "#8b938c",
+                    "on-surface": "#e6e5b9",
+                    "surface-container-lowest": "#0f0f00",
+                    "background": "#141400",
+                    "secondary-fixed-dim": "#66dd8b",
+                    "on-tertiary-container": "#4e3d00",
+                    "on-primary-fixed-variant": "#234f3b",
+                    "surface-variant": "#363618",
+                    "on-secondary-container": "#003115",
+                    "on-primary-container": "#6f9c84"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "button": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "label-caps": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-card-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .luxury-card-border:hover {
+            border-color: #e9c349;
+            transform: translateY(-4px);
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 24px;
+        }
+        .masonry-tall { grid-row: span 2; }
+        .masonry-wide { grid-column: span 2; }
+        @media (max-width: 768px) {
+            .masonry-wide { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-tertiary tracking-tight">Evergreen Estates</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Facilities</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Gallery</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Booking</a>
+<a class="text-tertiary font-semibold border-b-2 border-tertiary pb-1 font-body-md text-body-md" href="#">Reviews</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Contact</a>
+</div>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg font-button text-button hover:opacity-80 transition-all duration-300 active:scale-95">Book Now</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[614px] flex items-center justify-center overflow-hidden py-24">
+
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto">
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block tracking-[0.3em]">TESTIMONIALS</span>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">Cherished Memories</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Read what our esteemed guests have to say about their experience at Pakistan's premier luxury farmhouse, where tradition meets modern elegance.
+            </p>
+</div>
+</header>
+<!-- Reviews Overview & Cards -->
+<section class="py-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Guest Sentiment</h2>
+<p class="text-on-surface-variant">A tradition of excellence in hospitality.</p>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-low p-8 rounded-xl border border-tertiary/20">
+<div class="text-center">
+<div class="text-5xl font-bold text-tertiary mb-1">4.9</div>
+<div class="flex text-tertiary mb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<div class="font-label-caps text-label-caps opacity-70">120+ REVIEWS</div>
+</div>
+<div class="h-16 w-px bg-tertiary/20 hidden md:block"></div>
+<div class="hidden md:block">
+<p class="text-on-surface font-semibold">Exemplary Rating</p>
+<p class="text-on-surface-variant text-sm max-w-[200px]">Verified reviews from corporate retreats and family gatherings.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-lowest luxury-card-border p-8 rounded-xl relative">
+<div class="flex text-tertiary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6 italic leading-relaxed">
+                    "The level of privacy at Evergreen Estates is unmatched. Our family spent the weekend here and the secure boundary walls gave us total peace of mind. The kids absolutely loved the professional cricket ground!"
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary font-bold">SA</div>
+<div>
+<p class="font-bold text-on-surface">Salman Ahmed</p>
+<p class="text-sm text-tertiary">Verified Guest</p>
+</div>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-lowest luxury-card-border p-8 rounded-xl relative">
+<div class="flex text-tertiary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6 italic leading-relaxed">
+                    "We hosted a small corporate retreat here. The facilities are top-notch, especially the pool and the billiards room. The staff was incredibly professional and attended to every detail with grace."
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary font-bold">MK</div>
+<div>
+<p class="font-bold text-on-surface">Mariam Khan</p>
+<p class="text-sm text-tertiary">Event Organizer</p>
+</div>
+</div>
+</div>
+<!-- Review Card 3 -->
+<div class="bg-surface-container-lowest luxury-card-border p-8 rounded-xl relative">
+<div class="flex text-tertiary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6 italic leading-relaxed">
+                    "An oasis of serenity. The prayer sanctuary is beautifully designed and provides a peaceful space for reflection. The outdoor BBQ area under the floodlights made our evening truly memorable."
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary font-bold">UR</div>
+<div>
+<p class="font-bold text-on-surface">Usman Rana</p>
+<p class="text-sm text-tertiary">Regular Visitor</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Masonry Gallery Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-4">Life at Evergreen Estates</h2>
+<div class="w-24 h-1 bg-tertiary mx-auto"></div>
+</div>
+<div class="masonry-grid">
+<!-- Lawn -->
+<div class="masonry-tall relative group overflow-hidden rounded-xl">
+<img alt="Lush Lawns" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle landscape photograph of lush green emerald lawns at a luxury Pakistani estate. Tall, majestic palm trees frame the scene against a clear azure sky. The sunlight filters through the leaves, creating soft dappled patterns on the perfectly manicured grass, evoking a sense of peaceful morning serenity and natural opulence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkom8nQ0zHFYhXtmDID3BVZBlo45F3Ka8fBulLnp8TIMoJ1l85fXA8UmWcSn17T3zV-CNu1Lc_cSccFHQgTcRV8P_5y25ORB62M9MRw5Nohmx_VE4x2Bu8hwuZwpa1_5YwSCkH4VdiWLuhJKvU7dCRoGGF8KBVYYCRTcQmOOBSBn0CA3a6255xrm4EOVynC6pUkETgHIeu-X0YOSABT35ucKPCkxiZ5-2WK-RQsP9PsDUBfGVGorqr8CWuMnMW5l5zDbJVhANA2FE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Botanical Gardens</span>
+</div>
+</div>
+<!-- Pool -->
+<div class="masonry-wide relative group overflow-hidden rounded-xl">
+<img alt="Infinity Pool" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A breathtaking view of a luxury infinity pool during a golden sunset. The water is perfectly still, reflecting the warm orange and purple hues of the Pakistani sky. The architectural lines of the pool are sharp and modern, surrounded by dark stone tiling and subtle gold lighting accents that emphasize the high-end hospitality aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvBNk3jqVXbaeBd2a-aPKk4Zb6TH1a9fx9oCtrSu9bRrOlcqxtO4INZi4qp8HRhBzPtwmqI9qgtp2nYhRH404tj53UP3hFPaIo1dEeLatKqxEEK9zJ0GNZgJXye0nHQCL-QhkXtulN-xR_tjmEQPLymv8vWB0rA5IjLH29QlJiAqst17HypZcgb1Y4RGMKPF7ToIgHoZob1tNpvNgoxLn9L8LXJ6nSypWLWus-g74b2bjxh5NXxZDIT1P7fWaOJ--X01JsTOGVVio"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Sunset Infinity Pool</span>
+</div>
+</div>
+<!-- Cricket -->
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Cricket Pitch" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional-grade cricket pitch at night, illuminated by powerful stadium floodlights. The bright white light creates sharp contrasts against the deep forest green grass. The boundary line is clearly marked, and the atmosphere is charged with the excitement of a night match at a private estate, focusing on the pristine quality of the pitch." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS5ru_3YeBCo1KuqNC2NA5bcZG3TYgir6tEWjmncSaskdmvrxR38Ynp2JyWfilxx3P4i3pr3DdBXdFRg-FXJQkTDVWy78K5zgYDLJsFtaGZx9Jgn2e2rUwKQXs8dU5MIPBWuYPVAKWxFTkJCpxTY8JrzGGmZrmHnbqQ1TgQJZkf2P_YU1w7Kr4np9FqeOA4AsdqnoccXDVXIj2C1DMRzmmc_dv3y9m8SqFou_hfGMaiw3XrFyLHb9A2iI4NCkG-Yf-7UFVX_xtRnA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Night Cricket Pitch</span>
+</div>
+</div>
+<!-- Lounge -->
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Snooker Lounge" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The interior of a high-end snooker lounge with a classic dark wood aesthetic. A professional snooker table with vibrant green felt sits in the center under focused warm lighting. The surrounding furniture includes leather armchairs and polished gold hardware, creating a sophisticated masculine retreat within the farmhouse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALlp9JgtszLdafqZRCvkkOrfvjVp32kSldt_NaxgSVYBUEwNWIwtG0c49tW0V5BUUcnrWQHgJZBsh3dbfg-zDpWpPsR7MHJonuNVrgUKxppQfMmX-HNbu__La9qEmTYZe3OUXYABRdt88Aw_FwHUNDmSOdcIRfRxl522bEk3SdrHYau0OANqBftM0Ou9Knd2CKYzCYNwm_AZw2aUh2mJQ4NYJWeJy7PdSvub0z-D-tfW12Vif7EbfM4B_6l0BDTcOru3Bg-ychFjY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Royal Snooker Club</span>
+</div>
+</div>
+<!-- BBQ -->
+<div class="masonry-wide relative group overflow-hidden rounded-xl">
+<img alt="Family BBQ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An elegant outdoor BBQ setup in a private garden at dusk. High-quality stainless steel grills are in use, with warm smoke rising into the air. Tables are set with fine ceramics and gold cutlery. The focus is on the festive atmosphere and the gourmet food, with soft silhouettes of people enjoying the evening in the distance under hanging lantern lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTJZrWpEajzdIDnQq_Xfm1WWHN8w23weKTPA8oq2tTZloz4ss58JPji5BtQVAj9cU55WlUduIxCilto6ML-CLh-NOiW1kPzDExm2nSTeMGzraW71s3NXHFwmtnRaid_nmzWKvimc_OsllK_OuOsyiDei1qTROcBp8JjKW5RUAlHIROEM6RmO-CcvNhUHnZCrorybph43GTOdGokX9L0HjeFinZdoLuOf0_35WY8_Wq1IaxDKUrkRBEA9XZrPIpEYC5E7negncn5U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Family BBQ Evenings</span>
+</div>
+</div>
+<!-- Prayer Sanctuary -->
+<div class="masonry-tall relative group overflow-hidden rounded-xl">
+<img alt="Prayer Room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene and minimalist prayer sanctuary featuring Islamic geometric patterns carved into warm wood panels. Sunlight streams through a narrow window, highlighting the fine craftsmanship of the prayer rug. The atmosphere is quiet and spiritual, using a palette of cream, gold, and deep green to create a space of profound tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZLRobp_QogMXsqY920ZJvfLdbMVafBh-JLlw9PEYYiEo0MgSdl33hb2deecDVPQPBWS4m1abp9O35UDs1qfZQC_QhsTSpInSq4gbvPotScq4oQirwZ2aTWhh5__4c1j4QiV_QpljovJLoO-jGPbX687zTQ5H07zl-wb4XgI_aF3pdLk4SqGj1UzNjC-D5LIUvmEnmxOu7lTVo2Ome1ZEDmbHvlP_SvYd2Qfkzg_JsyrjNGNRIipsPfJ5zm65_YLoAikAtRPSrtX4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<span class="font-headline-sm text-tertiary">Private Sanctuary</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-32 relative overflow-hidden bg-primary-container">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto text-center">
+<h2 class="font-display-lg text-display-lg text-tertiary mb-6">Ready to Create Your Own Memories?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Book your exclusive stay at Evergreen Estates and experience the pinnacle of luxury, privacy, and family values.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<button class="bg-tertiary text-on-tertiary px-10 py-4 rounded-lg font-button text-button hover:opacity-90 transition-all luxury-card-border">Check Availability</button>
+<button class="border border-tertiary text-tertiary px-10 py-4 rounded-lg font-button text-button hover:bg-tertiary/10 transition-all">Contact Us</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-highest dark:bg-surface-container-highest border-t border-tertiary/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto font-body-md text-body-md">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-tertiary">Evergreen Estates</div>
+<p class="text-on-surface-variant max-w-xs">Pakistan's premier destination for luxury farmhouse living and curated experiences.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-tertiary">Quick Links</h4>
+<div class="flex flex-wrap gap-x-6 gap-y-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors hover:underline" href="#">Location</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors hover:underline" href="#">WhatsApp</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors hover:underline" href="#">Call</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors hover:underline" href="#">Terms</a>
+</div>
+</div>
+<div class="flex flex-col gap-4 items-start md:items-end">
+<p class="text-on-surface-variant text-sm">© 2024 Evergreen Estates. All Rights Reserved.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110 transition-transform">face_nod</span>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for gallery hover
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const overlay = item.querySelector('.bg-gradient-to-t');
+                if (overlay) overlay.style.opacity = '1';
+            });
+            item.addEventListener('mouseleave', () => {
+                const overlay = item.querySelector('.bg-gradient-to-t');
+                if (overlay) overlay.style.opacity = '0';
+            });
+        });
+
+        // Simple parallax for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('header');
+            if (hero) {
+                hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
+            }
+        });
+    </script>
+</body></html>

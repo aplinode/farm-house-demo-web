@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evergreen Estates | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-card {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 1);
+            box-shadow: 0 10px 30px rgba(1, 50, 32, 0.5);
+        }
+        .gold-border-glow:focus {
+            outline: none;
+            border-color: #e9c349;
+            box-shadow: 0 0 0 2px rgba(233, 195, 73, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141400;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #363618;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#002113",
+                      "secondary": "#66dd8b",
+                      "on-surface": "#e6e5b9",
+                      "outline-variant": "#414943",
+                      "tertiary-container": "#cba72f",
+                      "inverse-primary": "#3b6751",
+                      "background": "#141400",
+                      "primary": "#a2d1b7",
+                      "inverse-on-surface": "#323214",
+                      "surface-container": "#212105",
+                      "surface": "#141400",
+                      "error": "#ffb4ab",
+                      "primary-fixed": "#bdedd2",
+                      "surface-container-highest": "#363618",
+                      "on-background": "#e6e5b9",
+                      "surface-bright": "#3b3b1c",
+                      "on-tertiary-container": "#4e3d00",
+                      "on-tertiary-fixed": "#241a00",
+                      "on-tertiary": "#3c2f00",
+                      "on-secondary-fixed-variant": "#005227",
+                      "tertiary": "#e9c349",
+                      "surface-dim": "#141400",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#e9c349",
+                      "on-primary": "#083825",
+                      "primary-fixed-dim": "#a2d1b7",
+                      "surface-container-lowest": "#0f0f00",
+                      "secondary-fixed": "#83fba5",
+                      "surface-container-high": "#2b2b0e",
+                      "secondary-container": "#25a55a",
+                      "inverse-surface": "#e6e5b9",
+                      "outline": "#8b938c",
+                      "tertiary-fixed": "#ffe088",
+                      "on-primary-container": "#6f9c84",
+                      "error-container": "#93000a",
+                      "primary-container": "#013220",
+                      "on-primary-fixed-variant": "#234f3b",
+                      "surface-tint": "#a2d1b7",
+                      "on-secondary-fixed": "#00210c",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "on-surface-variant": "#c1c8c2",
+                      "on-error": "#690005",
+                      "on-secondary-container": "#003115",
+                      "secondary-fixed-dim": "#66dd8b",
+                      "surface-variant": "#363618",
+                      "on-secondary": "#003919",
+                      "surface-container-low": "#1d1d03"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "body-md": ["Montserrat"],
+                      "display-lg": ["Playfair Display"],
+                      "body-lg": ["Montserrat"],
+                      "button": ["Montserrat"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "headline-sm": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "label-caps": ["Montserrat"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-low border-r border-tertiary/20 flex flex-col h-full py-8 z-50">
+<div class="px-6 mb-12">
+<h1 class="font-headline-sm text-headline-sm text-tertiary">Estate Admin</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Premium Management</p>
+</div>
+<nav class="flex-grow space-y-2">
+<!-- Active State: Dashboard -->
+<a class="flex items-center gap-4 py-3 px-4 bg-tertiary-container text-on-tertiary-container rounded-lg mx-2 transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:bg-surface-variant rounded-lg mx-2 transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-caps text-label-caps">Bookings</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:bg-surface-variant rounded-lg mx-2 transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="house">house</span>
+<span class="font-label-caps text-label-caps">Inventory</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:bg-surface-variant rounded-lg mx-2 transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-caps text-label-caps">Revenue</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:bg-surface-variant rounded-lg mx-2 transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-tertiary text-on-tertiary py-3 rounded-lg font-button text-button hover:opacity-80 transition-all active:scale-95">
+                Add Farmhouse
+            </button>
+<div class="border-t border-tertiary/20 pt-4 space-y-2">
+<a class="flex items-center gap-4 py-2 px-4 text-on-surface-variant hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+<a class="flex items-center gap-4 py-2 px-4 text-on-surface-variant hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-margin-desktop max-w-container-max mx-auto">
+<!-- Header -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-tertiary mb-2">Management Overview</h2>
+<p class="text-on-surface-variant font-body-lg">Welcome back, Administrator. Here is the current estate performance.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high p-2 rounded-full border border-tertiary/10">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature administrative manager with a confident and welcoming expression, set against a blurred high-end office background with soft amber lighting. The style is cinematic and high-contrast, echoing a luxury hospitality brand aesthetic with deep green and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1N3TGHTBwMzvAboSOq24s3KPP7_Ht-ZVEaT5UhOTTy5U2XDre0f_GqGmPwh2fTOrJFDzLEM0QgiAQnVWJduWWOwlWYoFiRGkRRL23Ik0PkJINCd7D7wXY66xFPSGyufTeCkbxgSGNpO3WUjYdL5-o4Cfk1ZUvc857j3iew-l7gYhO-Xs5xWSasgL_R0BZjQlXczYteK2nGPlKhdYkgnbuBS6eYysr92KqfJKCbZlhcaHbbJ40xnXOWWToszsfyhm6XcPtiFVDLec"/>
+</div>
+<div class="pr-4">
+<p class="font-label-caps text-label-caps text-on-surface leading-none">Admin Profile</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Status: Online</p>
+</div>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-12">
+<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="event_available">event_available</span>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="book_online">book_online</span>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Total Bookings</p>
+<h3 class="font-display-lg text-headline-md text-on-surface">1,284</h3>
+</div>
+<p class="text-secondary text-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +12% this month
+                </p>
+</div>
+<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="payments">payments</span>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Total Revenue</p>
+<h3 class="font-display-lg text-headline-md text-on-surface">PKR 4.2M</h3>
+</div>
+<p class="text-secondary text-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +8.4% since last week
+                </p>
+</div>
+<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="pending_actions">pending_actions</span>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="notifications_active">notifications_active</span>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Pending Requests</p>
+<h3 class="font-display-lg text-headline-md text-on-surface">24</h3>
+</div>
+<p class="text-tertiary text-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="priority_high">priority_high</span> Needs immediate action
+                </p>
+</div>
+</section>
+<!-- Main Workspace: Table & Calendar -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Booking Management Table -->
+<section class="xl:col-span-2 luxury-card bg-surface-container p-8 rounded-xl">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline-sm text-headline-sm text-tertiary">Recent Bookings</h4>
+<div class="flex gap-2">
+<button class="p-2 border border-tertiary/20 rounded hover:border-tertiary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 border border-tertiary/20 rounded hover:border-tertiary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-tertiary/20">
+<th class="pb-4 font-label-caps text-label-caps text-on-surface-variant">Customer</th>
+<th class="pb-4 font-label-caps text-label-caps text-on-surface-variant">Dates</th>
+<th class="pb-4 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+<th class="pb-4 font-label-caps text-label-caps text-on-surface-variant text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-tertiary/10">
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-[10px] font-bold">AK</div>
+<div>
+<p class="font-semibold text-on-surface">Ahmed Khan</p>
+<p class="text-xs text-on-surface-variant">ahmed.k@email.com</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<p class="text-sm">Nov 12 - Nov 14, 2024</p>
+<p class="text-xs text-on-surface-variant">2 Nights</p>
+</td>
+<td class="py-4">
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary text-[10px] uppercase font-bold rounded-full border border-secondary/30">Confirmed</span>
+</td>
+<td class="py-4 text-right">
+<p class="font-bold text-on-surface">PKR 85,000</p>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-[10px] font-bold">ZM</div>
+<div>
+<p class="font-semibold text-on-surface">Zainab Malik</p>
+<p class="text-xs text-on-surface-variant">z.malik@outlook.com</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<p class="text-sm">Nov 18 - Nov 20, 2024</p>
+<p class="text-xs text-on-surface-variant">2 Nights</p>
+</td>
+<td class="py-4">
+<span class="px-3 py-1 bg-tertiary-container/20 text-tertiary text-[10px] uppercase font-bold rounded-full border border-tertiary/30">Pending</span>
+</td>
+<td class="py-4 text-right">
+<p class="font-bold text-on-surface">PKR 110,000</p>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-[10px] font-bold">SI</div>
+<div>
+<p class="font-semibold text-on-surface">Salman Ishaq</p>
+<p class="text-xs text-on-surface-variant">salman@domain.pk</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<p class="text-sm">Nov 25 - Nov 26, 2024</p>
+<p class="text-xs text-on-surface-variant">1 Night</p>
+</td>
+<td class="py-4">
+<span class="px-3 py-1 bg-error-container/20 text-error text-[10px] uppercase font-bold rounded-full border border-error/30">Cancelled</span>
+</td>
+<td class="py-4 text-right">
+<p class="font-bold text-on-surface">PKR 45,000</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<button class="mt-8 text-tertiary font-button text-button hover:underline flex items-center gap-2">
+                    View All Bookings <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Sidebar Controls -->
+<div class="space-y-gutter">
+<!-- Pricing Management -->
+<section class="luxury-card bg-surface-container p-8 rounded-xl">
+<h4 class="font-headline-sm text-headline-sm text-tertiary mb-6">Pricing Control</h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">Weekday Price (PKR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-tertiary font-bold">Rs.</span>
+<input class="w-full bg-surface-container-high border-b border-tertiary/30 focus:border-tertiary pl-12 py-3 gold-border-glow text-on-surface font-semibold" type="number" value="45000"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">Weekend Price (PKR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-tertiary font-bold">Rs.</span>
+<input class="w-full bg-surface-container-high border-b border-tertiary/30 focus:border-tertiary pl-12 py-3 gold-border-glow text-on-surface font-semibold" type="number" value="65000"/>
+</div>
+</div>
+<button class="w-full bg-tertiary-container text-on-tertiary-container py-3 rounded-lg font-button text-button hover:opacity-90 active:scale-95 transition-all">
+                            Update Rates
+                        </button>
+</div>
+</section>
+<!-- Availability Calendar (Simplified Admin View) -->
+<section class="luxury-card bg-surface-container p-8 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline-sm text-headline-sm text-tertiary">Availability</h4>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant font-label-caps">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Open
+                        </div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg">
+<div class="grid grid-cols-7 gap-2 mb-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant">M</span>
+<span class="text-[10px] font-bold text-on-surface-variant">T</span>
+<span class="text-[10px] font-bold text-on-surface-variant">W</span>
+<span class="text-[10px] font-bold text-on-surface-variant">T</span>
+<span class="text-[10px] font-bold text-on-surface-variant">F</span>
+<span class="text-[10px] font-bold text-on-surface-variant">S</span>
+<span class="text-[10px] font-bold text-on-surface-variant">S</span>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Placeholder dates -->
+<div class="aspect-square flex items-center justify-center text-xs opacity-30">28</div>
+<div class="aspect-square flex items-center justify-center text-xs opacity-30">29</div>
+<div class="aspect-square flex items-center justify-center text-xs opacity-30">30</div>
+<div class="aspect-square flex items-center justify-center text-xs opacity-30">31</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">1</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">2</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">3</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">4</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">5</div>
+<div class="aspect-square bg-error-container/40 border border-error text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm">6</div>
+<div class="aspect-square bg-error-container/40 border border-error text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm">7</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">8</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">9</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">10</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">11</div>
+<div class="aspect-square bg-tertiary-container/30 border border-tertiary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm font-bold">12</div>
+<div class="aspect-square bg-tertiary-container/30 border border-tertiary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm font-bold">13</div>
+<div class="aspect-square bg-tertiary-container/30 border border-tertiary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm font-bold">14</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">15</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">16</div>
+<div class="aspect-square bg-secondary/20 border border-secondary text-on-surface flex items-center justify-center text-xs cursor-pointer rounded-sm hover:bg-secondary/40">17</div>
+</div>
+</div>
+<p class="mt-4 text-[10px] text-on-surface-variant italic">Select dates to toggle availability (Open/Close). Red indicates manually blocked dates.</p>
+</section>
+</div>
+</div>
+<!-- System Message -->
+<div class="mt-12 p-6 bg-primary-container/10 border border-primary/20 rounded-lg flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<p class="text-on-surface-variant text-sm">
+                System health check: All servers operational. Automated backup successful at 02:00 AM PKR.
+            </p>
+</div>
+</main>
+<!-- Visual Polish: Animated Mesh Background (Overlay) -->
+<div class="fixed inset-0 -z-10 pointer-events-none opacity-20">
+
+</div>
+<script>
+        // Simple micro-interaction for the sidebar
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+                    l.classList.add('text-on-surface-variant');
+                });
+                link.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+                link.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Price input formatting simulation
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                console.log('Price updated to:', input.value);
+                // In a real app, this would trigger an API call
+            });
+        });
+    </script>
+</body></html>

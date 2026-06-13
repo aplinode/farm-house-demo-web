@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evergreen Estates | Luxury Farmhouse Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#002113",
+                        "secondary": "#66dd8b",
+                        "on-surface": "#e6e5b9",
+                        "outline-variant": "#414943",
+                        "tertiary-container": "#cba72f",
+                        "inverse-primary": "#3b6751",
+                        "background": "#141400",
+                        "primary": "#a2d1b7",
+                        "inverse-on-surface": "#323214",
+                        "surface-container": "#212105",
+                        "surface": "#141400",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#bdedd2",
+                        "surface-container-highest": "#363618",
+                        "on-background": "#e6e5b9",
+                        "surface-bright": "#3b3b1c",
+                        "on-tertiary-container": "#4e3d00",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-tertiary": "#3c2f00",
+                        "on-secondary-fixed-variant": "#005227",
+                        "tertiary": "#e9c349",
+                        "surface-dim": "#141400",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "on-primary": "#083825",
+                        "primary-fixed-dim": "#a2d1b7",
+                        "surface-container-lowest": "#0f0f00",
+                        "secondary-fixed": "#83fba5",
+                        "surface-container-high": "#2b2b0e",
+                        "secondary-container": "#25a55a",
+                        "inverse-surface": "#e6e5b9",
+                        "outline": "#8b938c",
+                        "tertiary-fixed": "#ffe088",
+                        "on-primary-container": "#6f9c84",
+                        "error-container": "#93000a",
+                        "primary-container": "#013220",
+                        "on-primary-fixed-variant": "#234f3b",
+                        "surface-tint": "#a2d1b7",
+                        "on-secondary-fixed": "#00210c",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-surface-variant": "#c1c8c2",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#003115",
+                        "secondary-fixed-dim": "#66dd8b",
+                        "surface-variant": "#363618",
+                        "on-secondary": "#003919",
+                        "surface-container-low": "#1d1d03"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "button": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .luxury-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .luxury-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: #e9c349 !important;
+            box-shadow: 0 10px 30px rgba(1, 50, 32, 0.5);
+        }
+        .glass-effect {
+            background: rgba(20, 20, 0, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-tertiary tracking-tight">Evergreen Estates</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-tertiary font-semibold border-b-2 border-tertiary pb-1" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Facilities</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Gallery</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Booking</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-button text-button active:scale-95 transition-all hover:opacity-80">
+                Book Now
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A breathtaking high-angle drone photograph of a sprawling luxury estate in Pakistan. The scene features lush green lawns, rows of towering palm trees, and a modern architectural masterpiece with large glass windows and clean lines. The warm golden hour lighting casts long shadows and highlights the deep emerald greens and earthy tones of the landscape, creating an atmosphere of absolute privacy and serene luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhNH-5txXZ-QS9_rayu081iwIWG8qatgflvx1_YC4wRX23AEY6fC5mN-OpK4KObzFITAhVLXspkFn9AI_TE1ZqOcnwpUSO3UjlPb9Dt9N8RnJyI4WV80sYZA-B9PbarjqMnHibq2WcJ3LQ-EJN83gnhnGOftl7NISMQveM5XEMNQyMQ_Jl1PSxX6yeHxdPRiKxrVr34YI9SvWWt5cphj3_aTiK4e1sIxd58ZVaJm-WpPpFb0TXcB97bdVjKRU_tTu3jDh_cQpFKRE"/>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/20 to-surface"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface max-w-4xl mx-auto mb-6">
+                Experience Luxury, Privacy &amp; Comfort
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Escape to an exclusive sanctuary where modern architecture meets the tranquility of nature. Your premium Pakistani farmhouse retreat awaits.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-tertiary text-on-tertiary px-10 py-4 rounded-full font-button text-button uppercase tracking-widest hover:opacity-90 transition-all">
+                    Explore Estates
+                </button>
+<button class="border border-tertiary text-tertiary px-10 py-4 rounded-full font-button text-button uppercase tracking-widest hover:bg-tertiary/10 transition-all">
+                    View Gallery
+                </button>
+</div>
+</div>
+</header>
+<!-- Live Availability Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block">Reservation Status</span>
+<h2 class="font-headline-md text-headline-md mb-6">Live Availability</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Our bookings fill up quickly for weekends and holidays. Check our real-time calendar to secure your preferred dates for an unforgettable family getaway.
+                </p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-sm bg-tertiary"></div>
+<span class="text-body-md">Available Dates</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-sm bg-surface-container-highest"></div>
+<span class="text-body-md">Reserved / Fully Booked</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-tertiary/20 p-8 rounded-xl shadow-2xl">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm">October 2024</h3>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-tertiary">chevron_left</button>
+<button class="material-symbols-outlined text-tertiary">chevron_right</button>
+</div>
+</div>
+<div class="calendar-grid text-center font-label-caps text-tertiary mb-4">
+<div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+</div>
+<div class="calendar-grid gap-2">
+<!-- Placeholder days -->
+<div class="py-3 text-on-surface-variant opacity-30">29</div>
+<div class="py-3 text-on-surface-variant opacity-30">30</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">1</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">2</div>
+<div class="py-3 bg-surface-container-highest text-on-surface-variant rounded cursor-not-allowed">3</div>
+<div class="py-3 bg-surface-container-highest text-on-surface-variant rounded cursor-not-allowed">4</div>
+<div class="py-3 bg-surface-container-highest text-on-surface-variant rounded cursor-not-allowed">5</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">6</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">7</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">8</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">9</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">10</div>
+<div class="py-3 bg-tertiary text-on-tertiary rounded font-bold">11</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">12</div>
+<!-- Row 3 -->
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">13</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">14</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">15</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">16</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">17</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">18</div>
+<div class="py-3 border border-tertiary/10 rounded hover:bg-tertiary/20 cursor-pointer">19</div>
+</div>
+<button class="w-full mt-8 bg-tertiary text-on-tertiary py-3 font-button rounded hover:opacity-90 transition-all">Check Dates</button>
+</div>
+</div>
+</section>
+<!-- Featured Facilities Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest mb-4 block">World Class Amenities</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg">Estate Facilities</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Swimming Pool -->
+<div class="luxury-card-hover group bg-surface-container-low border border-tertiary/10 overflow-hidden relative">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A pristine, crystal-clear luxury infinity swimming pool at a high-end estate. The pool water is a deep turquoise, reflecting the clear blue sky. Surrounding the pool are elegant stone tiles and high-end outdoor lounge furniture, with lush greenery and palm trees in the background. The lighting is bright and airy, emphasizing the cleanliness and exclusivity of the facility. No people are present, focusing purely on the serene architecture and water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChQ_e53YC9wlmoDNLXJqF33wQ8f-lu9Pz0d03-LvBRHJHjk7sas1kT0K1VAscYpTDEOSof3WhsxbptP3H2AerCvvpNdxfFDu6_XVtLzaN4_uvRfk6wYXiOrLtBzFd55pRD5byLJ2gmiGRhQNtwVbsXbNUL2FC3Do5dAy1Xymcdp_521oQ6z0dCRh4aR_5A41UYVOBHizlbSzmBA6EhhE8Q-QPRJ83HqyFmt6IBvXAxnzu6Fh-JA67nOFIfbadwvLpeHvT60W-57CE"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Infinity Pool</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">pool</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Temp-controlled, 24/7 filtered water with private deck space.</p>
+</div>
+</div>
+<!-- Cricket Ground -->
+<div class="luxury-card-hover group bg-surface-container-low border border-tertiary/10 overflow-hidden relative">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A professional-grade cricket pitch with perfectly manicured lush green grass and clearly marked white lines. The outfield is sprawling and vibrant emerald green, surrounded by decorative estate boundaries. The lighting is warm and natural, highlighting the texture of the grass and the high-end maintenance of the ground. The aesthetic is clean, sporty, and premium, evoking a sense of high-stakes friendly competition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvfE-JL21_5B3nJ9Zy8GKz5OVt5NJICWVI0pywOzcRqEuE4LjrmMYJNKsiLmgQ1gJ4xMuP8mzk_LRkEdLRQFzGpk80WAj_sI15IPwZ4hkXEj1kvQbdUX8bkpluH9l9EQDesFRALIBIrVMUNwTDWVIl_SAGW9tAOzIb1sQb29Gh7Wljqemy0NxgAXhb0lnOFOQh6ZHFaVOrMdKnJOWFqQoJeyxjgSk23pNxN3NRS8XlaARhtyOEdPzEP_v3g12qmc7rcgBXc_qkz_U"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Professional Pitch</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sports_cricket</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Flood-lit cricket ground with professional turf and spectator area.</p>
+</div>
+</div>
+<!-- Snooker Lounge -->
+<div class="luxury-card-hover group bg-surface-container-low border border-tertiary/10 overflow-hidden relative">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A sophisticated indoor snooker lounge with a professional-sized table featuring deep green felt and polished mahogany wood. The room is dimly lit with focused pendant lights over the table, creating a dramatic and exclusive mood. In the background, there are luxury leather armchairs and dark wood paneling, embodying a high-end gentlemen's club aesthetic with no people present. The color palette is rich with deep greens, golds, and dark browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOeCBoOeWiQ2m8O9tOVDAAr2c8LBRsuOcCPlb_6Y7W7jz1R2Dnr7pxZTbQ5NAVM3DyCV8G0zuWpiFms0CZh67Vm15m2HSluYmACvT4ysESLNz5A-pxEPY0PQ-O83L8XYPkJQ92vUGcjd86X6uPGvHK1SuZu0Yp9yoZeGw95AKs_pP9qunAbvGheVs-2VLCh3bcyPY821JxZ4MuBHmTgBxQsGQm84fBOUNS2MtrS14RmGc0zBaANyR8MXqQtZ3riNbTxiKjK5ngr_U"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Snooker Lounge</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sports_bar</span>
+</div>
+<p class="text-on-surface-variant font-body-md">High-end full-size table in a climate-controlled executive lounge.</p>
+</div>
+</div>
+<!-- BBQ Area -->
+<div class="luxury-card-hover group bg-surface-container-low border border-tertiary/10 overflow-hidden relative">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A modern outdoor BBQ and kitchen area featuring stainless steel grills and stone countertops. The area is sheltered by a stylish wooden pergola with ambient hanging Edison bulbs. The surrounding environment is lush with Pakistani flora, creating a private and cozy culinary space. The lighting is soft and golden, suggesting a perfect evening setting for a family meal. No food or people are visible, focusing on the high-quality equipment and design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXENoIaFPE1giPN_ssweyEwqYv1U4Awsqm28MwRSXtW3rf9uX_5t4aPHDL8_LzBfuTHS_0xUmDRdSNQ5jkntO9LzZ7p-R4pks-B0pr_pk4JOHspkuPKbVN_1GogQj_WXgPicGzrHRUVHdqOfE3FtwLIP-P_tzs1I5uE6qU3Mb3rAysy2Txzy96EpqzAuIIlaP_Kt0nylWpMiFkOqyroNq4gqz9tFa2cwDa6lN-QnEVawyMpdMaFHQUINvY5_dA2jl3yMNo7x8wxiQ"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">BBQ Pavillion</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">outdoor_grill</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Fully equipped outdoor kitchen with premium grills and seating.</p>
+</div>
+</div>
+<!-- Prayer Area -->
+<div class="luxury-card-hover group bg-surface-container-low border border-tertiary/10 overflow-hidden relative md:col-span-2 lg:col-span-1">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene and minimalist prayer area within the estate, featuring high ceilings and traditional Islamic geometric patterns on the walls. Large arched windows allow soft natural light to pour onto high-quality prayer mats. The atmosphere is quiet, peaceful, and deeply spiritual, with a palette of cream, gold, and soft greens. No people are present, highlighting the architectural beauty and the dedicated space for reflection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAflyu_hGUusLOdh2UpYYR4QRHA2oxbYIKsfPLDLgVkDl9KyR6QeGSNCecQYwcPgHxjcAJYYA0X43tS1ymclRfP2CQ2YZZPSp_s_edVLe7aX5ZSFzM0NWxCX6XPlrZjEZzKT9FdlvgLXtq3IkgX3PbUUuG0s9MuCAmuC9jXXNU80lJbELqklUj6L6wHOuFmMFRmvmAYAs5b-Z4B81lkv3P9nzru1gKb-3L-ESjHs04_2iv1JZGCWd1X2CgEE_cYMZsvIM2mnhSQKRE"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Prayer Sanctuary</h3>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">mosque</span>
+</div>
+<p class="text-on-surface-variant font-body-md">A dedicated, peaceful space for prayer and spiritual reflection.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Rates Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest mb-4 block">Tailored Packages</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg">Experience Packages</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-4xl mx-auto">
+<!-- Weekday Package -->
+<div class="bg-surface-container p-10 border border-tertiary/20 rounded-xl relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-32 h-32 bg-tertiary/10 rounded-full blur-3xl"></div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Weekday Retreat</h3>
+<p class="text-on-surface-variant mb-6">Sunday to Thursday</p>
+<div class="flex items-baseline gap-2 mb-8">
+<span class="text-tertiary font-bold text-4xl">50,000</span>
+<span class="text-on-surface-variant text-label-caps">PKR / NIGHT</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>Full Estate Access</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>Infinity Pool &amp; BBQ Area</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>Snooker &amp; Game Room</span>
+</li>
+</ul>
+<button class="w-full border border-tertiary text-tertiary py-3 font-button rounded hover:bg-tertiary hover:text-on-tertiary transition-all">Select Package</button>
+</div>
+<!-- Weekend Package -->
+<div class="bg-primary-container p-10 border-2 border-tertiary rounded-xl relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary px-3 py-1 text-[10px] font-bold uppercase rounded">Most Popular</div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Weekend Grandeur</h3>
+<p class="text-on-surface-variant mb-6">Friday &amp; Saturday</p>
+<div class="flex items-baseline gap-2 mb-8">
+<span class="text-tertiary font-bold text-4xl">90,000</span>
+<span class="text-on-surface-variant text-label-caps">PKR / NIGHT</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>All Amenities Included</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>Flood-lit Cricket Ground</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+<span>Complementary Welcome Basket</span>
+</li>
+</ul>
+<button class="w-full bg-tertiary text-on-tertiary py-3 font-button rounded shadow-lg shadow-tertiary/20 hover:opacity-90 transition-all">Book Weekend</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-24 bg-surface-container-low border-y border-tertiary/10">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block">Our Guests Say</span>
+<h2 class="font-headline-md text-headline-md">Cherished Memories</h2>
+</div>
+<div class="flex items-center gap-2 bg-surface p-4 rounded-lg border border-tertiary/20">
+<span class="font-bold text-xl">4.9/5</span>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-on-surface-variant text-sm">(120+ Reviews)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface p-8 rounded-xl border border-tertiary/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-6">"An absolute gem! The privacy is unmatched and the kids had a blast at the cricket ground. Truly a five-star experience in every sense."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center font-bold text-tertiary">SA</div>
+<div>
+<p class="font-bold text-sm">Salman Ahmed</p>
+<p class="text-xs text-on-surface-variant">Local Guide • 3 months ago</p>
+</div>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-xl border border-tertiary/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-6">"The architecture is breathtaking. We spent the whole weekend by the pool. The BBQ area setup was perfect for our family reunion."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center font-bold text-tertiary">MK</div>
+<div>
+<p class="font-bold text-sm">Mariam Khan</p>
+<p class="text-xs text-on-surface-variant">Verified Guest • 1 month ago</p>
+</div>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-xl border border-tertiary/10">
+<div class="flex gap-1 text-tertiary mb-4">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-6">"Clean, secure, and very professional staff. The prayer room was a beautiful touch that we really appreciated. Highly recommended."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center font-bold text-tertiary">UR</div>
+<div>
+<p class="font-bold text-sm">Usman Rana</p>
+<p class="text-xs text-on-surface-variant">Verified Guest • 2 weeks ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 h-[450px] rounded-2xl overflow-hidden border-2 border-tertiary/30">
+<img class="w-full h-full object-cover grayscale opacity-50 contrast-125" data-alt="A stylized, high-contrast luxury map preview of the estate's location in a prestigious area of Pakistan. The map features elegant gold and emerald green tones, with minimalist icons marking nearby landmarks and the main access routes. The lighting is subtle and editorial, creating a sophisticated feel that prioritizes privacy and exclusivity while providing clear geographic context." data-location="Lahore, Pakistan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQlfrcYirliWDREqOZ95DpTjOGjrrs_7nfzMCvOpUU1eMp571RNBzoI5WZrwen2bm9KeFrQJUKigM5u80rxFEy0wc-YYYOfVGy6_w8mZkrYfB9a2EvhzV_tAGRyCdpf9HT2JkfdoB8uJm5oA1l0DBUoGr0iwBwkvUZ2vlLmHCOWj9BGmLb983HV059Abzem44soaAL9cZxm3KZmqU9mcRRznDx3H6_F9MXfN2J6t4lpMqmvvfDD8tKvAyBhqLZRs1tjNyn86SIBqE"/>
+</div>
+<div class="order-1 lg:order-2">
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block">Easy Access</span>
+<h2 class="font-headline-md text-headline-md mb-6">Where to Find Us</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                    Conveniently located just 20 minutes from the city center, yet worlds away from the noise. Our estate is situated in the secure and serene suburbs, ensuring a peaceful transition from urban hustle to rural tranquility.
+                </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<div>
+<p class="font-bold">Main Barki Road</p>
+<p class="text-sm text-on-surface-variant">Lahore, Punjab, Pakistan</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary">call</span>
+<div>
+<p class="font-bold">+92 (300) 123-4567</p>
+<p class="text-sm text-on-surface-variant">Available for WhatsApp 24/7</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-tertiary font-bold hover:underline">
+                        Get Directions
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container-highest border-t border-tertiary/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md text-tertiary">Evergreen Estates</div>
+<p class="text-on-surface-variant max-w-xs">Redefining luxury farmhouse hospitality in Pakistan with unmatched privacy and world-class facilities.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-tertiary">Quick Links</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Location</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">WhatsApp</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Call</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase text-xs tracking-widest text-tertiary">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-surface-container-low border border-tertiary/20 px-4 py-2 rounded flex-1 focus:outline-none focus:border-tertiary" placeholder="Email Address" type="email"/>
+<button class="bg-tertiary text-on-tertiary px-4 py-2 rounded font-bold hover:opacity-90">Join</button>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-tertiary/20 flex items-center justify-center hover:bg-tertiary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-tertiary">face_nod</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-tertiary/20 flex items-center justify-center hover:bg-tertiary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-tertiary">photo_camera</span>
+</a>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-tertiary/10 text-center text-xs text-on-surface-variant">
+            © 2024 Evergreen Estates. All Rights Reserved.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for luxury buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.96)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

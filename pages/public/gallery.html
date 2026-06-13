@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | Evergreen Estates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#6f9c84",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#ffe088",
+                    "on-surface": "#e6e5b9",
+                    "surface-container-low": "#1d1d03",
+                    "outline-variant": "#414943",
+                    "primary-fixed": "#bdedd2",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface-container-high": "#2b2b0e",
+                    "primary": "#a2d1b7",
+                    "secondary-fixed-dim": "#66dd8b",
+                    "on-tertiary": "#3c2f00",
+                    "on-background": "#e6e5b9",
+                    "surface-dim": "#141400",
+                    "secondary": "#66dd8b",
+                    "on-primary-fixed": "#002113",
+                    "background": "#141400",
+                    "surface": "#141400",
+                    "outline": "#8b938c",
+                    "on-secondary-container": "#003115",
+                    "surface-container-highest": "#363618",
+                    "on-tertiary-container": "#4e3d00",
+                    "surface-tint": "#a2d1b7",
+                    "on-primary": "#083825",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed-variant": "#005227",
+                    "inverse-primary": "#3b6751",
+                    "tertiary-container": "#cba72f",
+                    "surface-container-lowest": "#0f0f00",
+                    "primary-fixed-dim": "#a2d1b7",
+                    "on-secondary": "#003919",
+                    "surface-bright": "#3b3b1c",
+                    "on-tertiary-fixed": "#241a00",
+                    "inverse-surface": "#e6e5b9",
+                    "secondary-fixed": "#83fba5",
+                    "on-surface-variant": "#c1c8c2",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#323214",
+                    "on-secondary-fixed": "#00210c",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#363618",
+                    "secondary-container": "#25a55a",
+                    "on-primary-fixed-variant": "#234f3b",
+                    "surface-container": "#212105",
+                    "primary-container": "#013220",
+                    "tertiary": "#e9c349",
+                    "luxury-gold": "#D4AF37"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "button": ["Montserrat"],
+                    "label-caps": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 24px;
+            grid-auto-flow: dense;
+        }
+        .masonry-item.tall { grid-row: span 2; }
+        .masonry-item.wide { grid-column: span 2; }
+        @media (max-width: 768px) {
+            .masonry-item.wide { grid-column: span 1; }
+        }
+        .gold-border-gradient {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+        .gold-border-gradient:hover {
+            border-color: rgba(212, 175, 55, 1);
+            box-shadow: 0 10px 30px rgba(1, 50, 32, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            color: #a2d1b7;
+            border-bottom: 2px solid #a2d1b7;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-luxury-gold selection:text-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/95 dark:bg-background/95 border-b border-outline-variant/30 backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-desktop py-unit max-w-container-max mx-auto">
+<div class="font-display-lg text-primary uppercase tracking-widest text-[24px]">Evergreen Estates</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Farmhouses</a>
+<a class="font-body-lg text-body-lg text-primary font-bold border-b-2 border-primary pb-1" href="#">Gallery</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Experience</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-luxury-gold text-on-primary px-8 py-3 font-button text-button uppercase tracking-wider cursor-pointer transition-transform duration-200 active:scale-95">
+                Book Now
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-margin-desktop">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-20 text-center">
+<span class="font-label-caps text-luxury-gold uppercase tracking-[0.3em] block mb-4">Visual Heritage</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-6">The Estate Gallery</h1>
+<p class="max-w-2xl mx-auto font-body-lg text-on-surface-variant leading-relaxed">
+                Explore the meticulous fusion of Pakistani heritage and modern luxury. From the emerald sprawl of our grounds to the intricate geometry of our prayer halls.
+            </p>
+</section>
+<!-- Category Filter -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12">
+<div class="flex flex-wrap justify-center gap-8 border-b border-outline-variant/20 pb-4">
+<button class="font-button text-button uppercase tracking-widest text-primary active-tab">All</button>
+<button class="font-button text-button uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Architecture</button>
+<button class="font-button text-button uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Amenities</button>
+<button class="font-button text-button uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Interiors</button>
+<button class="font-button text-button uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Grounds</button>
+</div>
+</section>
+<!-- Masonry Gallery -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="masonry-grid">
+<!-- Architecture: Large Item -->
+<div class="masonry-item tall wide relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A grand Pakistani farmhouse architecture at dusk, showcasing symmetrical white stone arches and intricate lattice work. The building is illuminated by warm, ambient golden lights, reflecting on a polished marble courtyard. The atmosphere is quiet and regal, set against a deep indigo twilight sky with no figures visible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATdbzaWkl2fBaWDrIIOCyr31o0xk2M58WYCJnGYxeVV8k-z3ViKkoGuzZrtQm_zIB1H637uhx9oMq7H5b_zo3roiH0uzbogBwFn0eGKO5FwdAGLFrjJTwQUK03SHIacIl0RdmwGPaCJSiDS-dg5rstxT3SVOftQl5ElX6HD-HGFrHGWt0EdjOE-TXrqKQ3vHHBkUfWgs55nMrhF4Wzn9qK7y4p4lKNVGrBDcj7JuTmmJPVj6PnIR5pXJCqrzO108AyyCDFCSFua0U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+<span class="text-luxury-gold font-label-caps mb-2">Architecture</span>
+<h3 class="font-headline-sm text-on-surface">The Grand Pavillion</h3>
+</div>
+</div>
+<!-- Amenities: Pool -->
+<div class="masonry-item tall relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene private swimming pool at an luxury estate, featuring turquoise water with minimal ripples. The pool is surrounded by dark slate tiles and elegant emerald green lounge chairs under architectural pergolas. Lush tropical plants frame the view, creating a secluded sanctuary atmosphere with soft afternoon lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-5wyoBFvZ8VY7AfZLzhrXxMVlnCfuituRxnrjEK_ZU8o0x0wbUCdyw4RIoIQMurwUNRcTHzCZpMtdPt3I5WvEabDHNdeaVCp2aPBhtCOFytECfVCtkafXu9uA2Z5uDvH4H-5PDbFrNMzMQIEzstzEL84AB8atP3f_6ew9pb6osP27asEqnn5X-Js5B63UABeBaJ3QhK1LZva-Fyj7cU7MZrBeFLj2uRxQwofS6MPD0ktOoKvxFXrSnfP1AWy2AB6AKmXTAwtzops"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="text-luxury-gold font-label-caps mb-1">Amenities</span>
+<h3 class="font-headline-sm text-on-surface text-[20px]">Infinity Basin</h3>
+</div>
+</div>
+<!-- Grounds: Cricket Pitch -->
+<div class="masonry-item relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A pristine professional-grade cricket pitch located on a vast private estate. The grass is perfectly manicured with vibrant green stripes, and the surrounding grounds are filled with tall, mature evergreen trees. The scene is bright and airy, capturing a high-end sporting facility in a quiet, natural environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCidK6aVGZ-1BUUz4Hmluj_BUkRfU4tVJ0zR-SS32zU0KZZ7yIrB8ZprJmsp6ZdHfR-Sl-STLDo5l8s6Da8cGJDerXyzdCWlThv6YBZRqkITDeh3HCnpzdjjy4t9hGIz4LfSfK_4dWyFS2KRGHFheXjCnJomwFu9whtfTvYd0GoXHRrIjNJdKshGJpM1GuZ9cKW51M96e2uuo1-tgvD81zNPW1csJA5OTRyR0i4ZynHvHqu1nNcZDaLT1536Dh0Rn04OzcLSUqQkCQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="text-luxury-gold font-label-caps mb-1">Grounds</span>
+<h3 class="font-headline-sm text-on-surface text-[18px]">Private Cricket Oval</h3>
+</div>
+</div>
+<!-- Interiors: Snooker Room -->
+<div class="masonry-item relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated snooker room inside a luxury Pakistani estate. The centerpiece is a heavy mahogany table with deep green felt, surrounded by leather-bound books on dark wood shelves and a classic fireplace. Gold-accented lighting fixtures provide a warm, intimate glow, emphasizing a quiet atmosphere of leisure and refinement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsGqFXefOfIKdU0K2EBN3EIzubD71eZshxizzLXsPoKGCQWKYm7giL0R5Y7N_IV2YqvBjKkhmR9CvjdLwSvLFhFHYQsapbmUlFIgEu_THrX-EUWsjulsnEgaS1ZOc7k6pSX9NpzRJl6qb0S-ncOYq25OXrkqTgEMKb7ZvTQ8q9KT4rmEEvHpkzjD06-cQyXuHCpT72uIXnWKG0ATL1oPezABFwf9Vf9R-J6KG7pui1430v5Tsx5WbJlzLe7a0HSCKPjiaPAHWNyY4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="text-luxury-gold font-label-caps mb-1">Interiors</span>
+<h3 class="font-headline-sm text-on-surface text-[18px]">The Heritage Club</h3>
+</div>
+</div>
+<!-- Interiors: Prayer Area -->
+<div class="masonry-item wide relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dedicated, private prayer area within an estate, designed with minimalist Islamic architecture. Large arched windows allow soft, diffused sunlight to hit the plush emerald green carpet. The walls feature subtle geometric carvings in stone. The room is empty, radiating a profound sense of peace, spirituality, and clean architectural design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_-nAtRO3lMs0rKGauA8FM-PkGYZQT0L_CTIEmSy8egsUv6_PfdQ7NC9w8hfvkEenkP8UPy45Gu9jeSQCNXEC3Jej0498u1Jn3So_hRL_vw4JODvnIuGn4Lm6nXd4XQXZfn2KyFldXxlVydtvCPIk6F5Kce52G30MhL5iRuuXVCwzlekhfpm7NrDVcJCLslPt-jrvmE8waDOZeePG4-AAmvaXUXebojyDh0NNu5bwxjhC7tZhHj1enQIVHdlQFZ8VUvwvQn6psHhM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+<span class="text-luxury-gold font-label-caps mb-2">Interiors</span>
+<h3 class="font-headline-sm text-on-surface">The Sanctuary</h3>
+</div>
+</div>
+<!-- Grounds: Gardens -->
+<div class="masonry-item relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A lush botanical garden on a private estate featuring white rose bushes and meticulously trimmed hedges. A gravel pathway leads toward a small gold-trimmed gazebo in the distance. The morning light is soft and hazy, creating a dreamlike, high-contrast luxury feel focused on nature and landscape design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1r0t_6yEkvbNlAqwBxx6_qLDPZDMuSP-F5XscXn65ofgRSkcvROXVj-ZvE5hO5zMy5LeuUJsb8sIaBul2_1BHcuY_fB0HgiFvhSZN-nFdqlP1iADwifkzK5ajIMfKQqVguACkUep7uJh1Bgr5yPeCA6lrUS2uEUn7SEJsDOxArCUCJuyAQwvdkmM1f27PlKjTAnblWKgEGfUr4vxArlSIDVw8Mz9nCT8JiEdKQaV_mDfdMu7NRQjLLJ3UKHogRpDcvFKiUsItF20"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="text-luxury-gold font-label-caps mb-1">Grounds</span>
+<h3 class="font-headline-sm text-on-surface text-[18px]">Rose Gardens</h3>
+</div>
+</div>
+<!-- Amenities: Kids Area (Landscape focused) -->
+<div class="masonry-item relative group overflow-hidden gold-border-gradient cursor-pointer" onclick="openLightbox(this)">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxury wooden outdoor play structure for children, designed with natural timber and safe rubber flooring. It is nestled among large oak trees with a clear view of the estate's boundary wall. The design is high-end and integrates seamlessly into the lush green landscape, emphasizing a family-friendly environment in a premium setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTKcXK37gkRJxcqzUowX7Pxs2lcvGJjimVl7lpQG5Yudi3iU6_NbQhN67_Ds7q61VyiVhRo_mVCAXs_K6n8a62c5SnFLaTW8ieUbzNsH2yWXIqimYT-cz1i-DO0FwIimVhoUQuMoTHL73fTNgn2D6pOJA4SeyEqFTJ71NqfoHtrUukCtRB5fmNjw4mQ5nnz6i_Y2cruuYR2ttTmtDUJvkFmvoUWjGa0WNBcXQQK3IWWsbm8Ght206lXqBd991yvzk_D8zT6B7i5OQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="text-luxury-gold font-label-caps mb-1">Amenities</span>
+<h3 class="font-headline-sm text-on-surface text-[18px]">Kids Play Estate</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="relative overflow-hidden bg-surface-container-low border border-luxury-gold/20 py-24 px-12 text-center">
+<div class="absolute inset-0 opacity-10">
+<div class="w-full h-full" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md mb-8">Begin Your Estate Experience</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto mb-12">
+                        Immerse yourself in the tranquility of Evergreen Estates. Our private farmhouse retreats are currently accepting bookings for the upcoming season.
+                    </p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-luxury-gold text-on-primary px-12 py-4 font-button text-button uppercase tracking-widest hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
+                            Reserve Your Dates
+                        </button>
+<button class="border border-luxury-gold text-luxury-gold px-12 py-4 font-button text-button uppercase tracking-widest hover:bg-luxury-gold/10 transition-all duration-300">
+                            Download Brochure
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-gutter gap-unit w-full max-w-container-max mx-auto">
+<div class="font-headline-sm text-primary mb-4 md:mb-0">Evergreen Estates</div>
+<div class="flex gap-gutter mb-6 md:mb-0">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Booking Guide</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<div class="font-body-md text-body-md text-tertiary-fixed opacity-70">
+                © 2024 Evergreen Estates. All Rights Reserved.
+            </div>
+</div>
+</footer>
+<!-- Simple Lightbox Modal -->
+<div class="fixed inset-0 z-[100] bg-background/95 hidden backdrop-blur-xl flex items-center justify-center p-8 md:p-24" id="lightbox" onclick="closeLightbox()">
+<button class="absolute top-8 right-8 text-on-surface-variant hover:text-primary transition-colors" onclick="closeLightbox()">
+<span class="material-symbols-outlined text-[48px]">close</span>
+</button>
+<div class="max-w-5xl w-full h-full flex flex-col items-center justify-center gap-8">
+<img class="max-h-[819px] w-auto object-contain border border-luxury-gold/30 shadow-2xl" id="lightbox-img" src=""/>
+<div class="text-center">
+<h4 class="font-headline-sm text-on-surface" id="lightbox-title"></h4>
+<p class="font-label-caps text-luxury-gold uppercase mt-2" id="lightbox-category"></p>
+</div>
+</div>
+</div>
+<script>
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').innerText;
+            const category = element.querySelector('span').innerText;
+            
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCategory = document.getElementById('lightbox-category');
+
+            lightboxImg.src = img.src;
+            lightboxTitle.innerText = title;
+            lightboxCategory.innerText = category;
+            
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Filter functionality (visual only)
+        const filterBtns = document.querySelectorAll('button[class*="tracking-widest"]');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active-tab', 'text-primary'));
+                filterBtns.forEach(b => b.classList.add('text-on-surface-variant'));
+                btn.classList.add('active-tab', 'text-primary');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

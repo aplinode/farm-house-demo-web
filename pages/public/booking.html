@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking & Contact | Evergreen Estates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002113",
+                    "secondary": "#66dd8b",
+                    "on-surface": "#e6e5b9",
+                    "outline-variant": "#414943",
+                    "tertiary-container": "#cba72f",
+                    "inverse-primary": "#3b6751",
+                    "background": "#141400",
+                    "primary": "#a2d1b7",
+                    "inverse-on-surface": "#323214",
+                    "surface-container": "#212105",
+                    "surface": "#141400",
+                    "error": "#ffb4ab",
+                    "primary-fixed": "#bdedd2",
+                    "surface-container-highest": "#363618",
+                    "on-background": "#e6e5b9",
+                    "surface-bright": "#3b3b1c",
+                    "on-tertiary-container": "#4e3d00",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-tertiary": "#3c2f00",
+                    "on-secondary-fixed-variant": "#005227",
+                    "tertiary": "#e9c349",
+                    "surface-dim": "#141400",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "on-primary": "#083825",
+                    "primary-fixed-dim": "#a2d1b7",
+                    "surface-container-lowest": "#0f0f00",
+                    "secondary-fixed": "#83fba5",
+                    "surface-container-high": "#2b2b0e",
+                    "secondary-container": "#25a55a",
+                    "inverse-surface": "#e6e5b9",
+                    "outline": "#8b938c",
+                    "tertiary-fixed": "#ffe088",
+                    "on-primary-container": "#6f9c84",
+                    "error-container": "#93000a",
+                    "primary-container": "#013220",
+                    "on-primary-fixed-variant": "#234f3b",
+                    "surface-tint": "#a2d1b7",
+                    "on-secondary-fixed": "#00210c",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-surface-variant": "#c1c8c2",
+                    "on-error": "#690005",
+                    "on-secondary-container": "#003115",
+                    "secondary-fixed-dim": "#66dd8b",
+                    "surface-variant": "#363618",
+                    "on-secondary": "#003919",
+                    "surface-container-low": "#1d1d03"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "button": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "label-caps": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .luxury-card {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(33, 33, 5, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 1);
+        }
+        .form-input {
+            background: rgba(54, 54, 24, 0.4);
+            border: none;
+            border-bottom: 1px solid rgba(139, 147, 140, 0.3);
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #e9c349;
+            box-shadow: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #141400;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e9c349;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md dark:bg-surface/90 border-b border-tertiary/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-tertiary tracking-tight" href="#">Evergreen Estates</a>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Facilities</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Gallery</a>
+<a class="text-tertiary font-semibold border-b-2 border-tertiary pb-1 font-body-md text-body-md" href="#">Booking</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Reviews</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Contact</a>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg font-button text-button hover:opacity-80 transition-all duration-300 active:scale-95">Book Now</button>
+</div>
+<button class="md:hidden text-tertiary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+<!-- Hero Section -->
+<header class="mb-16 md:mb-24 text-center">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest block mb-4">RESERVE YOUR SANCTUARY</span>
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-6 text-on-surface">Secure Your Private Escape</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Experience the pinnacle of luxury farm living. Choose your package and dates to begin your journey with Evergreen Estates.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Booking Form Section -->
+<section class="lg:col-span-7">
+<div class="luxury-card p-8 md:p-12 rounded-xl">
+<h2 class="font-headline-sm text-headline-sm mb-8 text-tertiary border-b border-tertiary/20 pb-4">Booking Details</h2>
+<form class="space-y-8" id="bookingForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Full Name -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Full Name</label>
+<input class="form-input w-full py-3 px-0 font-body-md text-on-surface placeholder:text-outline-variant" name="fullName" placeholder="Enter your full name" required="" type="text"/>
+</div>
+<!-- Phone -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Phone Number</label>
+<input class="form-input w-full py-3 px-0 font-body-md text-on-surface placeholder:text-outline-variant" name="phone" placeholder="+92 XXX XXXXXXX" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Date -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Check-in Date</label>
+<input class="form-input w-full py-3 px-0 font-body-md text-on-surface color-scheme-dark" name="date" required="" type="date"/>
+</div>
+<!-- Guests -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Total Guests</label>
+<div class="flex items-center space-x-4 py-3">
+<button class="w-10 h-10 border border-tertiary/40 rounded-full flex items-center justify-center text-tertiary hover:bg-tertiary/10 transition-colors" onclick="decrementGuests()" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm min-w-[40px] text-center" id="guestCount">2</span>
+<button class="w-10 h-10 border border-tertiary/40 rounded-full flex items-center justify-center text-tertiary hover:bg-tertiary/10 transition-colors" onclick="incrementGuests()" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Package Selection -->
+<div class="space-y-4">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-4 block">Select Package</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="package" onchange="updatePrice()" type="radio" value="weekday"/>
+<div class="p-6 rounded-lg border border-tertiary/20 bg-surface-container-low peer-checked:border-tertiary peer-checked:bg-tertiary/5 transition-all group-hover:bg-surface-variant">
+<div class="flex justify-between items-start mb-2">
+<span class="font-headline-sm text-headline-sm text-tertiary">Weekday</span>
+<span class="material-symbols-outlined text-tertiary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Mon - Thu stay</p>
+<p class="font-headline-sm text-headline-sm">Rs. 45,000</p>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="package" onchange="updatePrice()" type="radio" value="weekend"/>
+<div class="p-6 rounded-lg border border-tertiary/20 bg-surface-container-low peer-checked:border-tertiary peer-checked:bg-tertiary/5 transition-all group-hover:bg-surface-variant">
+<div class="flex justify-between items-start mb-2">
+<span class="font-headline-sm text-headline-sm text-tertiary">Weekend</span>
+<span class="material-symbols-outlined text-tertiary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Fri - Sun stay</p>
+<p class="font-headline-sm text-headline-sm">Rs. 65,000</p>
+</div>
+</label>
+</div>
+</div>
+<button class="w-full bg-tertiary text-on-tertiary py-5 rounded-lg font-headline-sm text-headline-sm uppercase tracking-widest hover:opacity-90 transition-all active:scale-[0.98] mt-4 shadow-lg shadow-tertiary/20" type="submit">
+                            Confirm Booking Request
+                        </button>
+</form>
+</div>
+</section>
+<!-- Summary & Contact Sidebar -->
+<aside class="lg:col-span-5 space-y-12">
+<!-- Summary Card -->
+<div class="luxury-card p-8 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary/20 text-6xl">receipt_long</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-6 text-tertiary">Booking Summary</h3>
+<div class="space-y-4 font-body-md text-body-md">
+<div class="flex justify-between text-on-surface-variant">
+<span>Base Rate</span>
+<span id="baseRate">PKR 45,000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Additional Guests (>4)</span>
+<span id="extraGuestFee">PKR 0</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Service Charge</span>
+<span>PKR 1,500</span>
+</div>
+<div class="pt-6 border-t border-tertiary/20 flex justify-between items-baseline">
+<span class="text-tertiary font-semibold">Total Amount</span>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-on-surface" id="totalPrice">PKR 46,500</span>
+<p class="text-label-caps text-on-surface-variant mt-1">Inclusive of all taxes</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Support -->
+<div class="space-y-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Need Help?</h3>
+<div class="grid grid-cols-2 gap-4">
+<a class="flex flex-col items-center justify-center p-6 bg-surface-container-high rounded-xl border border-tertiary/10 hover:border-tertiary transition-all group" href="https://wa.me/923001234567">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-2 group-hover:scale-110 transition-transform">chat</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center p-6 bg-surface-container-high rounded-xl border border-tertiary/10 hover:border-tertiary transition-all group" href="tel:+923001234567">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-2 group-hover:scale-110 transition-transform">call</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Call Direct</span>
+</a>
+</div>
+</div>
+<!-- Inquiry Form -->
+<div class="luxury-card p-8 rounded-xl">
+<h3 class="font-headline-sm text-headline-sm mb-6 text-tertiary">Quick Inquiry</h3>
+<form class="space-y-4">
+<input class="form-input w-full py-3 px-0 font-body-md text-on-surface placeholder:text-outline-variant" placeholder="Your Email" type="email"/>
+<textarea class="form-input w-full py-3 px-0 font-body-md text-on-surface placeholder:text-outline-variant resize-none" placeholder="Message or specific requests..." rows="3"></textarea>
+<button class="text-tertiary font-button text-button flex items-center hover:opacity-70 transition-opacity">
+                            Send Inquiry <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</button>
+</form>
+</div>
+</aside>
+</div>
+<!-- Location Section -->
+<section class="mt-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1">
+<div class="luxury-card h-[400px] rounded-xl overflow-hidden grayscale contrast-125 hover:grayscale-0 transition-all duration-700">
+<!-- Simulated Google Map placeholder -->
+<div class="w-full h-full bg-surface-container-highest relative flex items-center justify-center">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<!-- Grid pattern for map feel -->
+<div class="w-full h-full bg-[radial-gradient(#e9c349_1px,transparent_1px)] [background-size:20px_20px]"></div>
+</div>
+<div class="text-center z-10">
+<span class="material-symbols-outlined text-tertiary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Bedian Road, Lahore</h4>
+<p class="text-on-surface-variant mt-2 px-8">5km from Elite Club, peaceful farm belt of Lahore Punjab</p>
+<button class="mt-6 bg-tertiary/10 border border-tertiary text-tertiary px-6 py-2 rounded-lg font-button text-button">Open in Maps</button>
+</div>
+<!-- Decorative elements -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-10" data-alt="A stylized overhead architectural site plan of a luxury farmhouse estate in Lahore, featuring lush green gardens, a large private swimming pool, and gated entrance. The map is presented in a dark, high-contrast aesthetic with golden accent lines indicating pathways and boundary walls. Elegant forest green and deep black tones dominate the visual landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK96xU6K2BT0KufTPhrbZj-tokzJwtOs4mP2wiNS0QYCONtNll5BQs3zrWpauyoc8zeG2_mz65R9P3a5Bo1S3GNHpfG5PcPqo1GVRLb8JAoe2JJWmaJeAqNICSkKxz9cHATvRnwHCBxRgityGh0b4bQQWVF46EXrwYeOWpy-UK9s-ewR6dbjz52nyvRSvbUxpGrdRPwjW2NkpHXL9kDzL2Z_hhaw3oEa9ez0N5iZrErsTHHyd7b-Rw7vIzfcMloLdySRuFG-ohdK0"/>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest">HOW TO REACH US</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Conveniently Located Yet Perfectly Isolated</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                        Our estate is situated in the prime farmhouse belt of Lahore, offering easy access from the city while ensuring total privacy and silence.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-tertiary">near_me</span>
+<div>
+<h5 class="font-body-md font-bold text-on-surface">Prime Accessibility</h5>
+<p class="text-on-surface-variant text-body-md">Just 15 minutes drive from DHA Phase 6 and 20 minutes from Allama Iqbal International Airport.</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-tertiary">security</span>
+<div>
+<h5 class="font-body-md font-bold text-on-surface">Secure Gated Area</h5>
+<p class="text-on-surface-variant text-body-md">Located within a highly secure private residential community with 24/7 patrolling.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-container-highest border-t border-tertiary/30 w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto font-body-md text-body-md">
+<div>
+<h4 class="font-headline-md text-headline-md text-tertiary mb-4">Evergreen Estates</h4>
+<p class="text-on-surface-variant max-w-xs">Crafting premium memories in the heart of nature since 2018. The ultimate private retreat for Pakistani families.</p>
+</div>
+<div>
+<h5 class="text-tertiary font-bold mb-4 uppercase tracking-widest text-label-caps">Quick Contact</h5>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">WhatsApp Support</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Emergency Call</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Location Guide</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-tertiary font-bold mb-4 uppercase tracking-widest text-label-caps">Legal</h5>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Refund Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-tertiary/10 text-center text-on-surface-variant text-label-caps">
+            © 2024 Evergreen Estates. All Rights Reserved.
+        </div>
+</footer>
+<script>
+        let guestCount = 2;
+        const baseRates = {
+            weekday: 45000,
+            weekend: 65000
+        };
+        const extraGuestCharge = 2500;
+        const serviceCharge = 1500;
+
+        function incrementGuests() {
+            if (guestCount < 10) {
+                guestCount++;
+                updateUI();
+            }
+        }
+
+        function decrementGuests() {
+            if (guestCount > 1) {
+                guestCount--;
+                updateUI();
+            }
+        }
+
+        function updatePrice() {
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('guestCount').innerText = guestCount;
+            
+            const selectedPackage = document.querySelector('input[name="package"]:checked').value;
+            const basePrice = baseRates[selectedPackage];
+            
+            // Assume 4 guests included in base price
+            const extraGuests = Math.max(0, guestCount - 4);
+            const extraFee = extraGuests * extraGuestCharge;
+            
+            const total = basePrice + extraFee + serviceCharge;
+
+            document.getElementById('baseRate').innerText = `PKR ${basePrice.toLocaleString()}`;
+            document.getElementById('extraGuestFee').innerText = `PKR ${extraFee.toLocaleString()}`;
+            document.getElementById('totalPrice').innerText = `PKR ${total.toLocaleString()}`;
+        }
+
+        // Initialize UI
+        updateUI();
+
+        // Form handling
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> PROCESSING...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you! Your booking request has been sent. Our team will contact you on WhatsApp shortly.');
+                btn.innerHTML = 'Confirm Booking Request';
+                btn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body></html>
