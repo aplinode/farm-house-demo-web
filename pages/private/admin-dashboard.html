@@ -128,12 +128,32 @@
         }
     </script>
 </head>
-<body class="bg-background text-on-surface font-body-md min-h-screen">
-<!-- SideNavBar (Shared Component) -->
-<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-low border-r border-tertiary/20 flex flex-col h-full py-8 z-50">
-<div class="px-6 mb-12">
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-x-hidden">
+<!-- Mobile Top Bar -->
+<div class="flex md:hidden items-center justify-between px-margin-mobile py-3 bg-surface-container-low border-b border-tertiary/20 sticky top-0 z-30">
+<button class="text-tertiary p-1" onclick="toggleSidebar()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">park</span>
+<h1 class="font-headline-sm text-headline-sm text-tertiary text-lg">Estate Admin</h1>
+</div>
+<a class="text-on-surface-variant" href="../../index.html">
+<span class="material-symbols-outlined">home</span>
+</a>
+</div>
+<!-- Sidebar Overlay (mobile) -->
+<div class="fixed inset-0 bg-black/60 z-40 hidden md:hidden" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<!-- SideNavBar (Responsive) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-low border-r border-tertiary/20 flex flex-col py-8 z-50 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out" id="sidebar">
+<div class="flex justify-between items-center px-6 mb-12">
+<div>
 <h1 class="font-headline-sm text-headline-sm text-tertiary">Estate Admin</h1>
 <p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Premium Management</p>
+</div>
+<button class="md:hidden text-tertiary -mr-2" onclick="toggleSidebar()">
+<span class="material-symbols-outlined">close</span>
+</button>
 </div>
 <nav class="flex-grow space-y-2">
 <!-- Active State: Dashboard -->
@@ -175,14 +195,14 @@
 </div>
 </aside>
 <!-- Main Content Canvas -->
-<main class="ml-64 p-margin-desktop max-w-container-max mx-auto">
+<main class="ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto pt-4 md:pt-0">
 <!-- Header -->
-<header class="mb-12 flex justify-between items-end">
+<header class="mb-8 md:mb-12 flex flex-col md:flex-row justify-between md:items-end gap-4">
 <div>
-<h2 class="font-display-lg text-display-lg text-tertiary mb-2">Management Overview</h2>
-<p class="text-on-surface-variant font-body-lg">Welcome back, Administrator. Here is the current estate performance.</p>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-tertiary mb-2">Management Overview</h2>
+<p class="text-on-surface-variant font-body-md md:font-body-lg">Welcome back, Administrator. Here is the current estate performance.</p>
 </div>
-<div class="flex items-center gap-4 bg-surface-container-high p-2 rounded-full border border-tertiary/10">
+<div class="flex items-center gap-4 bg-surface-container-high p-2 rounded-full border border-tertiary/10 self-start md:self-auto">
 <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary overflow-hidden">
 <img alt="Admin Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature administrative manager with a confident and welcoming expression, set against a blurred high-end office background with soft amber lighting. The style is cinematic and high-contrast, echoing a luxury hospitality brand aesthetic with deep green and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1N3TGHTBwMzvAboSOq24s3KPP7_Ht-ZVEaT5UhOTTy5U2XDre0f_GqGmPwh2fTOrJFDzLEM0QgiAQnVWJduWWOwlWYoFiRGkRRL23Ik0PkJINCd7D7wXY66xFPSGyufTeCkbxgSGNpO3WUjYdL5-o4Cfk1ZUvc857j3iew-l7gYhO-Xs5xWSasgL_R0BZjQlXczYteK2nGPlKhdYkgnbuBS6eYysr92KqfJKCbZlhcaHbbJ40xnXOWWToszsfyhm6XcPtiFVDLec"/>
 </div>
@@ -194,7 +214,7 @@
 </header>
 <!-- Stats Bento Grid -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-12">
-<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="luxury-card bg-surface-container-high p-6 md:p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
 <div class="absolute -right-4 -top-4 opacity-5">
 <span class="material-symbols-outlined text-[120px]" data-icon="event_available">event_available</span>
 </div>
@@ -207,7 +227,7 @@
 <span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +12% this month
                 </p>
 </div>
-<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="luxury-card bg-surface-container-high p-6 md:p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
 <div class="absolute -right-4 -top-4 opacity-5">
 <span class="material-symbols-outlined text-[120px]" data-icon="account_balance_wallet">account_balance_wallet</span>
 </div>
@@ -220,7 +240,7 @@
 <span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +8.4% since last week
                 </p>
 </div>
-<div class="luxury-card bg-surface-container-high p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="luxury-card bg-surface-container-high p-6 md:p-8 rounded-xl flex flex-col gap-4 relative overflow-hidden">
 <div class="absolute -right-4 -top-4 opacity-5">
 <span class="material-symbols-outlined text-[120px]" data-icon="pending_actions">pending_actions</span>
 </div>
@@ -237,8 +257,8 @@
 <!-- Main Workspace: Table & Calendar -->
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
 <!-- Booking Management Table -->
-<section class="xl:col-span-2 luxury-card bg-surface-container p-8 rounded-xl">
-<div class="flex justify-between items-center mb-8">
+<section class="xl:col-span-2 luxury-card bg-surface-container p-6 md:p-8 rounded-xl">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-8">
 <h4 class="font-headline-sm text-headline-sm text-tertiary">Recent Bookings</h4>
 <div class="flex gap-2">
 <button class="p-2 border border-tertiary/20 rounded hover:border-tertiary transition-colors">
@@ -333,7 +353,7 @@
 <!-- Sidebar Controls -->
 <div class="space-y-gutter">
 <!-- Pricing Management -->
-<section class="luxury-card bg-surface-container p-8 rounded-xl">
+<section class="luxury-card bg-surface-container p-6 md:p-8 rounded-xl">
 <h4 class="font-headline-sm text-headline-sm text-tertiary mb-6">Pricing Control</h4>
 <div class="space-y-6">
 <div class="space-y-2">
@@ -356,7 +376,7 @@
 </div>
 </section>
 <!-- Availability Calendar (Simplified Admin View) -->
-<section class="luxury-card bg-surface-container p-8 rounded-xl">
+<section class="luxury-card bg-surface-container p-6 md:p-8 rounded-xl">
 <div class="flex justify-between items-center mb-6">
 <h4 class="font-headline-sm text-headline-sm text-tertiary">Availability</h4>
 <div class="flex items-center gap-2 text-xs text-on-surface-variant font-label-caps">
@@ -403,7 +423,7 @@
 </div>
 </div>
 <!-- System Message -->
-<div class="mt-12 p-6 bg-primary-container/10 border border-primary/20 rounded-lg flex items-center gap-4">
+<div class="mt-8 md:mt-12 p-4 md:p-6 bg-primary-container/10 border border-primary/20 rounded-lg flex items-start md:items-center gap-3 md:gap-4">
 <span class="material-symbols-outlined text-primary" data-icon="info">info</span>
 <p class="text-on-surface-variant text-sm">
                 System health check: All servers operational. Automated backup successful at 02:00 AM PKR.
@@ -415,6 +435,12 @@
 
 </div>
 <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
         // Simple micro-interaction for the sidebar
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {

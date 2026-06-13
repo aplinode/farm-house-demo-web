@@ -139,19 +139,41 @@
 
     </div>
     <!-- Top Navigation (Shell Implementation) -->
-    <nav class="flex justify-center items-center py-8 w-full bg-background relative z-10">
+    <nav class="flex justify-between items-center py-4 md:py-8 px-margin-mobile md:px-margin-desktop w-full bg-background relative z-10">
         <div class="flex items-center gap-2">
             <span class="material-symbols-outlined text-primary text-3xl">park</span>
             <h1 class="font-headline-sm text-headline-sm font-bold text-primary">Evergreen Admin</h1>
         </div>
+        <div class="flex items-center gap-4">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors hidden sm:block" href="../../index.html">Public Site</a>
+            <button class="sm:hidden text-tertiary p-2" onclick="toggleMobileMenu()">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
     </nav>
+    <!-- Mobile Menu Overlay -->
+    <div class="fixed inset-0 bg-black/60 z-40 hidden" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+    <!-- Mobile Menu -->
+    <div class="fixed top-0 right-0 h-full w-64 bg-surface-container-highest z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobileMenu">
+        <div class="flex justify-between items-center p-6 border-b border-tertiary/20">
+            <span class="font-headline-sm text-headline-sm text-tertiary">Admin</span>
+            <button class="text-tertiary" onclick="toggleMobileMenu()">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col p-6 gap-2">
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="../../index.html">Public Site</a>
+            <a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary transition-colors py-3 px-4 rounded-lg hover:bg-surface-variant" href="admin-dashboard.html">Dashboard</a>
+            <a class="font-body-md text-body-md bg-tertiary text-on-tertiary text-center py-3 px-4 rounded-lg mt-4" href="admin-dashboard.html">Enter Dashboard</a>
+        </div>
+    </div>
     <!-- Main Authentication Canvas -->
     <main class="flex-grow flex items-center justify-center px-margin-mobile py-12 relative z-10">
         <!-- Auth Container -->
         <div class="w-full max-w-md transition-all duration-500 transform" id="auth-container">
             <!-- Login State -->
             <section
-                class="luxury-card p-10 rounded-xl space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                class="luxury-card p-6 md:p-10 rounded-xl space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700"
                 id="login-section">
                 <div class="text-center space-y-2">
                     <div class="flex justify-center mb-4">
@@ -232,7 +254,7 @@
                 </div>
             </section>
             <!-- Reset State -->
-            <section class="luxury-card p-10 rounded-xl space-y-8 state-hidden" id="reset-section">
+            <section class="luxury-card p-6 md:p-10 rounded-xl space-y-6 md:space-y-8 state-hidden" id="reset-section">
                 <div class="text-center space-y-2">
                     <div class="flex justify-center mb-4">
                         <div class="p-3 rounded-full bg-secondary-container/20 border border-secondary/30">
@@ -301,6 +323,12 @@
         </p>
     </footer> -->
     <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('translate-x-full');
+            document.getElementById('mobileOverlay').classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
         function togglePassword() {
             const input = document.getElementById('password');
             const icon = document.getElementById('pw-icon');
